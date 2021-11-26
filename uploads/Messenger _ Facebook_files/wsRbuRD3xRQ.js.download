@@ -1,0 +1,4 @@
+if (self.CavalryLogger) { CavalryLogger.start_js(["bYxVqPh"]); }
+
+__d("StoriesArchiveFixedListContentPaneRootQuery$Parameters",[],(function(a,b,c,d,e,f){"use strict";a={kind:"PreloadableConcreteRequest",params:{id:"4267802489963465",metadata:{},name:"StoriesArchiveFixedListContentPaneRootQuery",operationKind:"query",text:null}};e.exports=a}),null);
+__d("StoriesCometArchiveFixedListRoot.entrypoint",["JSResourceForInteraction","StoriesArchiveFixedListContentPaneRootQuery$Parameters","WebPixelRatio"],(function(a,b,c,d,e,f,g){"use strict";a={getPreloadProps:function(a){a=a.routeProps;return{queries:{storiesArchiveContentPaneRootReference:{parameters:b("StoriesArchiveFixedListContentPaneRootQuery$Parameters"),variables:{blur:d("WebPixelRatio").get()*10,cardIDs:a.cardIDs,scale:d("WebPixelRatio").get()}}}}},root:c("JSResourceForInteraction")("StoriesArchiveCometFixedListRoot.react").__setRef("StoriesCometArchiveFixedListRoot.entrypoint")};g["default"]=a}),98);
