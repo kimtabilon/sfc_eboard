@@ -168,7 +168,7 @@ margin:0;
                         </thead>
                         <tbody>
                              <?php
-        $ret=mysqli_query($con,"SELECT * FROM tblusers WHERE status='confirmed' ORDER BY ID DESC");
+        $ret=mysqli_query($con,"SELECT * FROM tblusers WHERE status='pending' ORDER BY ID DESC");
         $cnt=1;
         $row=mysqli_num_rows($ret);
         if($row>0){
@@ -187,6 +187,7 @@ margin:0;
                                     <a href="announcement_read.php?viewid=<?php echo htmlentities ($row['ID']);?>" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
                                     <a href="announcement_edit.php?editid=<?php echo htmlentities ($row['ID']);?>" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                                     <a href="announcement_delete.php?delid=<?php echo ($row['ID']);?>&&ppic=<?php echo $row['ProfilePic'];?>" class="delete" title="Delete" data-toggle="tooltip" onclick="return confirm('Do you really want to Delete ?');"><i class="material-icons">&#xE872;</i></a>
+                                    <a href="announcement_confirm.php?confirmid=<?php echo ($row['ID']);?>&&ppic=<?php echo $row['ProfilePic'];?>" class="confirm" title="Confirm" data-toggle="tooltip"><i class="material-icons">&#xe52d;</i></a>
                                 </td>
                             </tr>
                             <?php 

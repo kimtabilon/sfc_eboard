@@ -3,7 +3,12 @@ include_once('controller/config.php');
 if(isset($_POST["do"])&&($_POST["do"]=="update_teacher")){
 
 	$id=$_POST['id'];
-	$full_name=$_POST['full_name']; 
+	
+	$first_name = $_POST["first_name"];
+	$middle_name = $_POST["middle_name"];
+	$last_name = $_POST["last_name"];
+	$full_name = $first_name.($middle_name!=''?' '.$middle_name:'').' '.$last_name;
+
 	$i_name=$_POST['i_name']; 
 	$address=$_POST['address']; 
 	$gender=$_POST['gender']; 
@@ -42,7 +47,7 @@ if(isset($_POST["do"])&&($_POST["do"]=="update_teacher")){
 		if($full_name != $full_name1 || $i_name != $i_name1 || $address != $address1 || $gender != $gender1 ||$phone != $phone1 || $name){//MSK-000143-U-2		
 			
 			if(!$name){//MSK-000143-U-3
-				$sql = "update teacher set full_name='".$full_name."',i_name='".$i_name."',address='".$address."',gender='".$gender."',phone='".$phone."' ,email='".$email."' where id='$id'";
+				$sql = "update teacher set first_name='".$first_name."', middle_name='".$middle_name."', last_name='".$last_name."', full_name='".$full_name."',i_name='".$i_name."',address='".$address."',gender='".$gender."',phone='".$phone."' ,email='".$email."' where id='$id'";
 	
 				if(mysqli_query($conn,$sql)){
 								
@@ -55,7 +60,7 @@ if(isset($_POST["do"])&&($_POST["do"]=="update_teacher")){
 	
 			}else{ //MSK-000143-U-6
 				if(move_uploaded_file($tmpname, $image_path)){ //MSK-000143-U-7
-					$sql = "update teacher set full_name='".$full_name."',i_name='".$i_name."',address='".$address."',gender='".$gender."',phone='".$phone."' ,email='".$email."',image_name='".$image_path."' where id='$id'";
+					$sql = "update teacher set first_name='".$first_name."', middle_name='".$middle_name."', last_name='".$last_name."', full_name='".$full_name."',i_name='".$i_name."',address='".$address."',gender='".$gender."',phone='".$phone."' ,email='".$email."',image_name='".$image_path."' where id='$id'";
 	
 					if(mysqli_query($conn,$sql)){
 									
@@ -89,7 +94,7 @@ if(isset($_POST["do"])&&($_POST["do"]=="update_teacher")){
 
 			if(!$name){//MSK-000143-U-15
 			
-				$sql = "update teacher set full_name='".$full_name."',i_name='".$i_name."',address='".$address."',gender='".$gender."',phone='".$phone."' ,email='".$email."' where id='$id'";
+				$sql = "update teacher set first_name='".$first_name."', middle_name='".$middle_name."', last_name='".$last_name."', full_name='".$full_name."',i_name='".$i_name."',address='".$address."',gender='".$gender."',phone='".$phone."' ,email='".$email."' where id='$id'";
 
 				if(mysqli_query($conn,$sql)){
 					$msg+=1; 
@@ -103,7 +108,7 @@ if(isset($_POST["do"])&&($_POST["do"]=="update_teacher")){
 			
 				if(move_uploaded_file($tmpname, $image_path)){//MSK-000143-U-19	
 			
-					$sql = "update teacher set full_name='".$full_name."',i_name='".$i_name."',address='".$address."',gender='".$gender."',phone='".$phone."' ,email='".$email."',image_name='".$image_path."' where id='$id'";
+					$sql = "update teacher set first_name='".$first_name."', middle_name='".$middle_name."', last_name='".$last_name."', full_name='".$full_name."',i_name='".$i_name."',address='".$address."',gender='".$gender."',phone='".$phone."' ,email='".$email."',image_name='".$image_path."' where id='$id'";
 
 					if(mysqli_query($conn,$sql)){
 						$msg+=1; 

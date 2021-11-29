@@ -3,7 +3,12 @@ include_once('controller/config.php');
 if(isset($_POST["do"])&&($_POST["do"]=="add_student")){
 
 	$index_number = $_POST["index_number"];	
-	$full_name = $_POST["full_name"];
+	
+	$first_name = $_POST["first_name"];
+	$middle_name = $_POST["middle_name"];
+	$last_name = $_POST["last_name"];
+	$full_name = $first_name.($middle_name!=''?' '.$middle_name:'').' '.$last_name;
+
 	$i_name= $_POST["i_name"];
 	$gender = $_POST["gender"];
 	$address = $_POST["address"];
@@ -12,7 +17,12 @@ if(isset($_POST["do"])&&($_POST["do"]=="add_student")){
 	$b_date = $_POST["b_date"];
 	
 	$g_index_number = $_POST["g_index"];	
-	$g_full_name = $_POST["g_full_name"];
+
+	$g_first_name = $_POST["g_first_name"];
+	$g_middle_name = $_POST["g_middle_name"];
+	$g_last_name = $_POST["g_last_name"];
+	$g_full_name = $g_first_name.($g_middle_name!=''?' '.$g_middle_name:'').' '.$g_last_name;
+	// $g_full_name = $_POST["g_full_name"];
 	$g_i_name= $_POST["g_i_name"];
 	$g_gender = $_POST["g_gender"];
 	$g_address = $_POST["g_address"];
@@ -81,8 +91,8 @@ if(isset($_POST["do"])&&($_POST["do"]=="add_student")){
 			if(move_uploaded_file($tmpname, $image_path)){				
 				//MSK-000143-5	
 
-				$sql = "INSERT INTO student (index_number,full_name,i_name,gender,address,phone,email,image_name,reg_year,reg_month,reg_date,b_date)
-			            VALUES ('".$index_number."','".$full_name."','".$i_name."','".$gender."','".$address."','".$phone."','".$email."','".$image_path."','".$reg_year."','".$reg_month."','".$reg_date."','".$b_date."')";
+				$sql = "INSERT INTO student (index_number,first_name,middle_name,last_name,full_name,i_name,gender,address,phone,email,image_name,reg_year,reg_month,reg_date,b_date)
+			            VALUES ('".$index_number."','".$first_name."','".$middle_name."','".$last_name."','".$full_name."','".$i_name."','".$gender."','".$address."','".$phone."','".$email."','".$image_path."','".$reg_year."','".$reg_month."','".$reg_date."','".$b_date."')";
 
 				if(mysqli_query($conn,$sql)){
 					$msg+=2;  
@@ -140,8 +150,8 @@ if(isset($_POST["do"])&&($_POST["do"]=="add_student")){
 			if(move_uploaded_file($tmpname1, $g_image_path)){				
 				//MSK-000143-5	
 
-				$sql6 = "INSERT INTO parents (index_number,my_son_index,full_name,i_name,gender,address,phone,email,image_name,reg_year,reg_month,reg_date,b_date)
-			             VALUES ('".$g_index_number."','".$index_number."','".$g_full_name."','".$g_i_name."','".$g_gender."','".$g_address."','".$g_phone."','".$g_email."','".$g_image_path."','".$reg_year."','".$reg_month."','".$reg_date."','".$g_b_date."')";
+				$sql6 = "INSERT INTO parents (index_number,my_son_index,first_name,middle_name,last_name,full_name,i_name,gender,address,phone,email,image_name,reg_year,reg_month,reg_date,b_date)
+			             VALUES ('".$g_index_number."','".$index_number."','".$g_first_name."','".$g_middle_name."','".$g_last_name."','".$g_full_name."','".$g_i_name."','".$g_gender."','".$g_address."','".$g_phone."','".$g_email."','".$g_image_path."','".$reg_year."','".$reg_month."','".$reg_date."','".$g_b_date."')";
 
 				if(mysqli_query($conn,$sql6)){
 					$g_msg+=2;  

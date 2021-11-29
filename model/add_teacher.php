@@ -3,7 +3,12 @@ include_once('controller/config.php');
 if(isset($_POST["do"])&&($_POST["do"]=="add_teacher")){
 
 	$index_number = $_POST["index_number"];	
-	$full_name = $_POST["full_name"];
+	
+	$first_name = $_POST["first_name"];
+	$middle_name = $_POST["middle_name"];
+	$last_name = $_POST["last_name"];
+	$full_name = $first_name.($middle_name!=''?' '.$middle_name:'').' '.$last_name;
+	
 	$i_name= $_POST["i_name"];
 	$gender = $_POST["gender"];
 	$address = $_POST["address"];
@@ -55,8 +60,8 @@ if(isset($_POST["do"])&&($_POST["do"]=="add_teacher")){
 		 	if(move_uploaded_file($tmpname, $image_path)){
 				//MSK-000143-5	
 				
-				$sql = "INSERT INTO teacher (index_number,full_name,i_name,gender,address,phone,email,image_name,reg_date)
-			            VALUES ('".$index_number."','".$full_name."','".$i_name."','".$gender."','".$address."','".$phone."','".$email."','".$image_path.                        "','".$current_date."')";
+				$sql = "INSERT INTO teacher (index_number,first_name,middle_name,last_name,full_name,i_name,gender,address,phone,email,image_name,reg_date)
+			            VALUES ('".$index_number."','".$first_name."','".$middle_name."','".$last_name."','".$full_name."','".$i_name."','".$gender."','".$address."','".$phone."','".$email."','".$image_path.                        "','".$current_date."')";
 				if(mysqli_query($conn,$sql)){
 					$msg+=2;  
 					//MSK-000143-6 The record has been successfully inserted into the database.

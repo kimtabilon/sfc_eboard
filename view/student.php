@@ -265,12 +265,18 @@ display:none;
                                            <input type="text" class="form-control" placeholder="Enter index number" name="index_number" id="index_number" autocomplete="off">  
                                         </div>                    
                                     </div>
-                                     <div class="form-group" id="divFullName">
+                                     <div class="form-group">
                                         <div class="col-xs-3">
-                                            <label for="exampleInputEmail1">Full Name</label>
+                                            <label>Name</label>
                                         </div>
-                                        <div class="col-xs-9" id="divFullName1">
-                                           <input type="text" class="form-control" placeholder="Enter full name" name="full_name" id="full_name" autocomplete="off">  
+                                        <div class="col-xs-3">
+                                            <input type="text" class="form-control" placeholder="Enter first name" name="first_name" id="first_name" autocomplete="off">  
+                                        </div>  
+                                        <div class="col-xs-3">
+                                            <input type="text" class="form-control" placeholder="Enter midle name" name="middle_name" id="middle_name" autocomplete="off">  
+                                        </div>   
+                                        <div class="col-xs-3">
+                                            <input type="text" class="form-control" placeholder="Enter last name" name="last_name" id="last_name" autocomplete="off">  
                                         </div>                    
                                     </div>
                                     <div class="form-group" id="divIName">
@@ -353,13 +359,19 @@ display:none;
                                            <input type="text" class="form-control" placeholder="Enter index number" name="g_index" id="g_index" autocomplete="off" readonly>  
                                         </div>                    
                                     </div>
-                                     <div class="form-group" id="divGFullName">
+                                     <div class="form-group">
                                         <div class="col-xs-3">
-                                            <label for="exampleInputEmail1">Full Name</label>
+                                            <label>Name</label>
                                         </div>
-                                        <div class="col-xs-9" id="divGFullName1">
-                                           <input type="text" class="form-control" placeholder="Enter full name" name="g_full_name" id="g_full_name" autocomplete="off">  
-                                        </div>                    
+                                        <div class="col-xs-3">
+                                            <input type="text" class="form-control" placeholder="Enter first name" name="g_first_name" id="g_first_name" required="required" autocomplete="off">  
+                                        </div>  
+                                        <div class="col-xs-3">
+                                            <input type="text" class="form-control" placeholder="Enter midle name" name="g_middle_name" id="g_middle_name" autocomplete="off">  
+                                        </div>   
+                                        <div class="col-xs-3">
+                                            <input type="text" class="form-control" placeholder="Enter last name" name="g_last_name" id="g_last_name" required="required" autocomplete="off">  
+                                        </div>                       
                                     </div>
                                     <div class="form-group" id="divGIName">
                                         <div class="col-xs-3">

@@ -273,10 +273,16 @@ $row1=mysqli_fetch_assoc($result1);
                                 	<p class="alert-warning ">Student Details </p>
                                      <div class="form-group" id="divFullName">
                                         <div class="col-xs-3">
-                                            <label for="exampleInputEmail1">Full Name</label>
+                                            <label for="exampleInputEmail1">Name</label>
                                         </div>
-                                        <div class="col-xs-9" id="divFullName1">
-                                           <input type="text" class="form-control" placeholder="Enter full name" name="full_name" id="full_name" autocomplete="off" value="<?php echo $row['full_name']; ?>">  
+                                        <div class="col-xs-3">
+                                           <input type="text" class="form-control" placeholder="Enter first name" name="first_name" id="first_name" autocomplete="off" required="required" value="<?php echo $row['first_name']; ?>">  
+                                        </div>  
+                                        <div class="col-xs-3">
+                                           <input type="text" class="form-control" placeholder="Enter middle name" name="middle_name" id="middle_name" autocomplete="off" value="<?php echo $row['middle_name']; ?>">  
+                                        </div>  
+                                        <div class="col-xs-3">
+                                           <input type="text" class="form-control" placeholder="Enter last name" name="last_name" id="last_name" autocomplete="off" required="required" value="<?php echo $row['last_name']; ?>">  
                                         </div>                    
                                     </div>
                                     <div class="form-group" id="divIName">
@@ -354,9 +360,15 @@ $row1=mysqli_fetch_assoc($result1);
                                         <div class="col-xs-3">
                                             <label for="exampleInputEmail1">Full Name</label>
                                         </div>
-                                        <div class="col-xs-9" id="divGFullName1">
-                                           <input type="text" class="form-control" placeholder="Enter full name" name="g_full_name" id="g_full_name" autocomplete="off" value="<?php echo $row1['full_name']; ?>">  
-                                        </div>                    
+                                        <div class="col-xs-3">
+                                           <input type="text" class="form-control" placeholder="Enter first name" name="g_first_name" id="g_first_name" autocomplete="off" required="required" value="<?php echo $row1['first_name']; ?>">  
+                                        </div>  
+                                        <div class="col-xs-3">
+                                           <input type="text" class="form-control" placeholder="Enter middle name" name="g_middle_name" id="g_middle_name" autocomplete="off" value="<?php echo $row1['middle_name']; ?>">  
+                                        </div>  
+                                        <div class="col-xs-3">
+                                           <input type="text" class="form-control" placeholder="Enter last name" name="g_last_name" id="g_last_name" autocomplete="off" required="required" value="<?php echo $row1['last_name']; ?>">  
+                                        </div>                  
                                     </div>
                                     <div class="form-group" id="divGIName">
                                         <div class="col-xs-3">

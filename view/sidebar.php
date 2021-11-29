@@ -103,9 +103,17 @@ $image=$row['image_name'];
         </li>
 
         <li>
-          <a href="announcement.php">
-            <i class="fa fa-flag"></i> <span>eBoard</span>
+          <a href="#">
+            <i class="fa fa-flag"></i>
+            <span>eBoard</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
           </a>
+          <ul class="treeview-menu">
+            <li><a href="announcement.php"><i class="fa fa-circle-o"></i> Confirmed</a></li>
+            <li><a href="announcement_request.php"><i class="fa fa-circle-o"></i> Pending</a></li>
+          </ul>
         </li>
 
       </ul>

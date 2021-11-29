@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 02, 2021 at 08:35 AM
--- Server version: 10.4.8-MariaDB
--- PHP Version: 7.3.11
+-- Generation Time: Nov 29, 2021 at 06:35 AM
+-- Server version: 10.3.16-MariaDB
+-- PHP Version: 7.3.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -375,6 +375,9 @@ CREATE TABLE `parents` (
   `id` int(11) NOT NULL,
   `index_number` varchar(255) NOT NULL,
   `my_son_index` bigint(11) NOT NULL,
+  `first_name` varchar(255) NOT NULL,
+  `middle_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) NOT NULL,
   `full_name` varchar(255) NOT NULL,
   `i_name` varchar(255) NOT NULL,
   `gender` varchar(255) NOT NULL,
@@ -393,16 +396,17 @@ CREATE TABLE `parents` (
 -- Dumping data for table `parents`
 --
 
-INSERT INTO `parents` (`id`, `index_number`, `my_son_index`, `full_name`, `i_name`, `gender`, `address`, `phone`, `email`, `image_name`, `b_date`, `reg_date`, `reg_year`, `reg_month`, `_status`) VALUES
-(7, 'G-11', 11, 'Dad 1', 'Dad 1', 'Male', 'USA', '111-111-1112', 'dad1@gmail.com', 'uploads/20171125093360.png', '1965-08-25', '2017-11-24', 2017, 'November', ''),
-(8, 'G-12', 12, 'Dad 2', 'Dad 2', 'Male', 'USA', '(222) 222-2222', 'dad2@gmail.com', 'uploads/20171125104538.png', '1968-05-10', '2017-11-24', 2017, 'November', ''),
-(9, 'G-13', 13, 'Dad 3', 'Dad 3', 'Male', 'USA', '(333) 333-3333', 'dad3@gmail.com', 'uploads/20171125091460.jpg', '1965-05-28', '2017-11-24', 2017, 'November', ''),
-(12, 'G-14', 14, 'Dad 4', 'Dad 4', 'Male', 'USA', '(444) 444-4444', 'dad4@gmail.com', 'uploads/20171125091724.png', '1964-08-25', '2017-11-24', 2017, 'November', ''),
-(13, 'G-25252525', 25252525, 'Dad 1', 'Dad 154444444', 'Male', 'Sri Lankaklkklklkk', '555-555-5555', 'dad1hgjhjhjhj23@gmail.com', 'uploads/2018024035941.png', '0000-00-00', '2018-02-04', 2018, 'February', ''),
-(14, 'G-1234', 1234, 'Artemio C. Sabado', 'ACS', 'Male', 'Bato Malusay, Guihulngan City, Negros Oriental ', '995-171-1663', 'swanicher@gmail.com', 'uploads/2021101080057.png', '0000-00-00', '2021-10-01', 2021, 'October', ''),
-(15, 'G-11-12-1314', 11, 'Rodolfo Z. Villegas ', 'RZV', 'Male', 'Bato Malusay, Guihulngan City', '0915-878-5292', 'opong@gmail.com', 'uploads/2021102065624.png', '0000-00-00', '2021-10-02', 2021, 'October', ''),
-(16, 'G-2222', 2222, 'Ronniel C. Villegas ', 'RCV', 'Male', 'Bato Malusay, Guihulngan City', '1234-567-8974', 'ronniel@gmail.com', 'uploads/2021102071437.jpg', '0000-00-00', '2021-10-02', 2021, 'October', ''),
-(17, 'G-2289-1-2018', 2289, 'Hilario A. Benlot', '@helario_benlot', 'Male', 'Lalibertad, Negros Oriental ', '910-000-5433', 'juvilene@gmail.com', 'uploads/2021102080007.jpg', '0000-00-00', '2021-10-02', 2021, 'October', '');
+INSERT INTO `parents` (`id`, `index_number`, `my_son_index`, `first_name`, `middle_name`, `last_name`, `full_name`, `i_name`, `gender`, `address`, `phone`, `email`, `image_name`, `b_date`, `reg_date`, `reg_year`, `reg_month`, `_status`) VALUES
+(7, 'G-11', 11, '', NULL, '', 'Dad 1', 'Dad 1', 'Male', 'USA', '111-111-1112', 'dad1@gmail.com', 'uploads/20171125093360.png', '1965-08-25', '2017-11-24', 2017, 'November', ''),
+(8, 'G-12', 12, '', NULL, '', 'Dad 2', 'Dad 2', 'Male', 'USA', '(222) 222-2222', 'dad2@gmail.com', 'uploads/20171125104538.png', '1968-05-10', '2017-11-24', 2017, 'November', ''),
+(9, 'G-13', 13, '', NULL, '', 'Dad 3', 'Dad 3', 'Male', 'USA', '(333) 333-3333', 'dad3@gmail.com', 'uploads/20171125091460.jpg', '1965-05-28', '2017-11-24', 2017, 'November', ''),
+(12, 'G-14', 14, '', NULL, '', 'Dad 4', 'Dad 4', 'Male', 'USA', '(444) 444-4444', 'dad4@gmail.com', 'uploads/20171125091724.png', '1964-08-25', '2017-11-24', 2017, 'November', ''),
+(13, 'G-25252525', 25252525, '', NULL, '', 'Dad 1', 'Dad 154444444', 'Male', 'Sri Lankaklkklklkk', '555-555-5555', 'dad1hgjhjhjhj23@gmail.com', 'uploads/2018024035941.png', '0000-00-00', '2018-02-04', 2018, 'February', ''),
+(14, 'G-1234', 1234, '', NULL, '', 'Artemio C. Sabado', 'ACS', 'Male', 'Bato Malusay, Guihulngan City, Negros Oriental ', '995-171-1663', 'swanicher@gmail.com', 'uploads/2021101080057.png', '0000-00-00', '2021-10-01', 2021, 'October', ''),
+(15, 'G-11-12-1314', 11, '', NULL, '', 'Rodolfo Z. Villegas ', 'RZV', 'Male', 'Bato Malusay, Guihulngan City', '0915-878-5292', 'opong@gmail.com', 'uploads/2021102065624.png', '0000-00-00', '2021-10-02', 2021, 'October', ''),
+(16, 'G-2222', 2222, '', NULL, '', 'Ronniel C. Villegas ', 'RCV', 'Male', 'Bato Malusay, Guihulngan City', '1234-567-8974', 'ronniel@gmail.com', 'uploads/2021102071437.jpg', '0000-00-00', '2021-10-02', 2021, 'October', ''),
+(17, 'G-2289-1-2018', 2289, '', NULL, '', 'Hilario A. Benlot', '@helario_benlot', 'Male', 'Lalibertad, Negros Oriental ', '910-000-5433', 'juvilene@gmail.com', 'uploads/2021102080007.jpg', '0000-00-00', '2021-10-02', 2021, 'October', ''),
+(18, 'G-2435345', 2435345, 'testx', 'testx', 'Tabilonx', 'testx testx Tabilonx', 'test', 'Male', 'Binoongan', '910-000-5433', 'kim.gtabilon@gmail.com', 'uploads/20211129033156.jpg', '0000-00-00', '2021-11-29', 2021, 'November', '');
 
 -- --------------------------------------------------------
 
@@ -476,6 +480,9 @@ CREATE TABLE `petty_cash_history` (
 CREATE TABLE `student` (
   `id` int(11) NOT NULL,
   `index_number` bigint(11) NOT NULL,
+  `first_name` varchar(255) NOT NULL,
+  `middle_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) NOT NULL,
   `full_name` varchar(255) NOT NULL,
   `i_name` varchar(255) NOT NULL,
   `gender` varchar(255) NOT NULL,
@@ -494,16 +501,18 @@ CREATE TABLE `student` (
 -- Dumping data for table `student`
 --
 
-INSERT INTO `student` (`id`, `index_number`, `full_name`, `i_name`, `gender`, `address`, `phone`, `email`, `image_name`, `b_date`, `_status`, `reg_year`, `reg_month`, `reg_date`) VALUES
-(11, 11, 'Student 1', 'Student 1jbjb', 'Female', 'USA', '111-111-1112', 'std1@gmail.com', 'uploads/20171125093359.png', '2010-01-01', '', 2017, 'November', '2017-11-24'),
-(12, 12, 'Student 2', 'Student 20', 'Male', 'USA', '(222) 222-2222', 'std2@gmail.com', 'uploads/20171125104521.png', '2010-01-02', '', 2017, 'November', '2017-11-24'),
-(13, 13, 'Student 3', 'Student 3', 'Female', 'USA', '(333) 333-3333', 'std3@gmail.com', 'uploads/20171125091459.png', '2010-01-03', '', 2017, 'November', '2017-11-24'),
-(19, 14, 'Student 4', 'Student 4', 'Female', 'USA', '(444) 444-4444', 'std4@gmail.com', 'uploads/20171125091723.png', '2010-01-04', '', 2017, 'November', '2017-11-24'),
-(20, 25252525, 'Sandun1111111111', 'Sandun111111111', 'Female', 'Sri Lanka11111111', '455-455-4555', 'lkforex2015111@gmail.com', 'uploads/2018024042603.jpg', '0000-00-00', '', 2018, 'February', '2018-02-04'),
-(21, 1234, 'Christopher Y. Sabado ', 'CYS ', 'Male', 'Bato Malusay, Guihulngan City, Negros Oriental ', '995-171-1663', 'swanicher@gmail.com', 'uploads/2021101080056.jpg', '0000-00-00', '', 2021, 'October', '2021-10-01'),
-(22, 11, 'Swanie Rose V. Sabado', 'SVS', 'Female', 'Bato Malusay, Guihulngan City', '0915-878-5292', 'swanie@gmail.com', 'uploads/2021102065623.jpg', '0000-00-00', '', 2021, 'October', '2021-10-02'),
-(23, 2222, 'Shane C. Villegas ', 'SCV', 'Female', 'Bato Malusay, Guihulngan City', '1234-567-8974', 'shane@gmail.com', 'uploads/2021102071436.jpg', '0000-00-00', '', 2021, 'October', '2021-10-02'),
-(24, 2289, 'Juvilene S. Benlot', '@juvilene_benlot', 'Female', 'Lalibertad, Negros Oriental ', '910-000-5433', 'juvilene@gmail.com', 'uploads/2021102080006.jpg', '0000-00-00', '', 2021, 'October', '2021-10-02');
+INSERT INTO `student` (`id`, `index_number`, `first_name`, `middle_name`, `last_name`, `full_name`, `i_name`, `gender`, `address`, `phone`, `email`, `image_name`, `b_date`, `_status`, `reg_year`, `reg_month`, `reg_date`) VALUES
+(11, 11, '', NULL, '', 'Student 1', 'Student 1jbjb', 'Female', 'USA', '111-111-1112', 'std1@gmail.com', 'uploads/20171125093359.png', '2010-01-01', '', 2017, 'November', '2017-11-24'),
+(12, 12, '', NULL, '', 'Student 2', 'Student 20', 'Male', 'USA', '(222) 222-2222', 'std2@gmail.com', 'uploads/20171125104521.png', '2010-01-02', '', 2017, 'November', '2017-11-24'),
+(13, 13, '', NULL, '', 'Student 3', 'Student 3', 'Female', 'USA', '(333) 333-3333', 'std3@gmail.com', 'uploads/20171125091459.png', '2010-01-03', '', 2017, 'November', '2017-11-24'),
+(19, 14, '', NULL, '', 'Student 4', 'Student 4', 'Female', 'USA', '(444) 444-4444', 'std4@gmail.com', 'uploads/20171125091723.png', '2010-01-04', '', 2017, 'November', '2017-11-24'),
+(20, 25252525, '', NULL, '', 'Sandun1111111111', 'Sandun111111111', 'Female', 'Sri Lanka11111111', '455-455-4555', 'lkforex2015111@gmail.com', 'uploads/2018024042603.jpg', '0000-00-00', '', 2018, 'February', '2018-02-04'),
+(21, 1234, '', NULL, '', 'Christopher Y. Sabado ', 'CYS ', 'Male', 'Bato Malusay, Guihulngan City, Negros Oriental ', '995-171-1663', 'swanicher@gmail.com', 'uploads/2021101080056.jpg', '0000-00-00', '', 2021, 'October', '2021-10-01'),
+(22, 11, '', NULL, '', 'Swanie Rose V. Sabado', 'SVS', 'Female', 'Bato Malusay, Guihulngan City', '0915-878-5292', 'swanie@gmail.com', 'uploads/2021102065623.jpg', '0000-00-00', '', 2021, 'October', '2021-10-02'),
+(23, 2222, '', NULL, '', 'Shane C. Villegas ', 'SCV', 'Female', 'Bato Malusay, Guihulngan City', '1234-567-8974', 'shane@gmail.com', 'uploads/2021102071436.jpg', '0000-00-00', '', 2021, 'October', '2021-10-02'),
+(24, 2289, '', NULL, '', 'Juvilene S. Benlot', '@juvilene_benlot', 'Female', 'Lalibertad, Negros Oriental ', '910-000-5433', 'juvilene@gmail.com', 'uploads/2021102080006.jpg', '0000-00-00', '', 2021, 'October', '2021-10-02'),
+(25, 0, 'test12', 'test2', 'test3', 'test12 test2 test3', 'test4', 'Male', 'test5', '0915-878-5292', 'test6@gmail.com', 'uploads/20211129032157.jpg', '0000-00-00', '', 2021, 'November', '2021-11-29'),
+(26, 2435345, 'KIMx', 'GOMEZx', 'TABILONx', 'KIMx GOMEZx TABILONx', 'terst', 'Male', 'BINOONGAN', '910-000-5433', 'kim.gtabilon@gmail.com', 'uploads/20211129033155.jpg', '0000-00-00', '', 2021, 'November', '2021-11-29');
 
 -- --------------------------------------------------------
 
@@ -596,7 +605,9 @@ INSERT INTO `student_grade` (`id`, `index_number`, `grade_id`, `year`) VALUES
 (88, 1234, 14, 2021),
 (89, 11, 17, 2021),
 (90, 2222, 14, 2021),
-(91, 2289, 14, 2021);
+(91, 2289, 14, 2021),
+(92, 0, 14, 2021),
+(93, 2435345, 14, 2021);
 
 -- --------------------------------------------------------
 
@@ -630,7 +641,8 @@ INSERT INTO `student_payment` (`id`, `index_number`, `year`, `month`, `date`, `p
 (235, 25252525, 2018, 'February', '2018-02-04', 1000.00, 'Admission Fee', ''),
 (236, 25252525, 2018, 'February', '2018-02-04', 1500.00, 'Monthly Fee1', ''),
 (237, 1234, 2021, 'October', '2021-10-01', 50000.00, 'Admission Fee', ''),
-(238, 11, 2021, 'October', '2021-10-02', 0.00, 'Admission Fee', '');
+(238, 11, 2021, 'October', '2021-10-02', 0.00, 'Admission Fee', ''),
+(239, 0, 2021, 'November', '2021-11-29', 50000.00, 'Admission Fee', '');
 
 -- --------------------------------------------------------
 
@@ -809,6 +821,9 @@ INSERT INTO `subject_routing` (`id`, `grade_id`, `subject_id`, `teacher_id`, `fe
 
 CREATE TABLE `teacher` (
   `id` int(11) NOT NULL,
+  `first_name` varchar(255) NOT NULL,
+  `middle_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) NOT NULL,
   `full_name` varchar(255) NOT NULL,
   `i_name` varchar(255) NOT NULL,
   `gender` varchar(255) NOT NULL,
@@ -824,13 +839,14 @@ CREATE TABLE `teacher` (
 -- Dumping data for table `teacher`
 --
 
-INSERT INTO `teacher` (`id`, `full_name`, `i_name`, `gender`, `address`, `phone`, `email`, `image_name`, `index_number`, `reg_date`) VALUES
-(10, 'Teacher 1', 'Teacher 1fdsfhdfgdh', 'Male', 'Schoolfdgsfg', '111-111-1111', 't1@gmail.com', 'uploads/20171124010228.png', 1, '2017-11-24'),
-(11, 'Teacher 2', 'Teacher 2', 'Female', 'School', '222-222-2222', 't2@gmail.com', 'uploads/20171124010308.png', 2, '2017-11-24'),
-(12, 'Teacher 3', 'Teacher 3', 'Female', 'School', '333-333-3333', 't3@gmail.com', 'uploads/20171124010354.png', 3, '2017-11-24'),
-(13, 'Teacher 4', 'Teacher 4', 'Male', 'School', '444-444-4444', 't4@gmail.com', 'uploads/20171124010530.png', 4, '2017-11-24'),
-(14, 'Teacher 5', 'Teacher 5', 'Male', 'School', '555-555-5555', 't5@gmail.com', 'uploads/20171124010613.png', 5, '2017-11-24'),
-(15, 'Teacher 6', 'Teacher 6', 'Male', 'School', '666-666-6666', 't6@gmail.com', 'uploads/20171124010754.png', 6, '2017-11-24');
+INSERT INTO `teacher` (`id`, `first_name`, `middle_name`, `last_name`, `full_name`, `i_name`, `gender`, `address`, `phone`, `email`, `image_name`, `index_number`, `reg_date`) VALUES
+(10, '', NULL, '', 'Teacher 1', 'Teacher 1fdsfhdfgdh', 'Male', 'Schoolfdgsfg', '111-111-1111', 't1@gmail.com', 'uploads/20171124010228.png', 1, '2017-11-24'),
+(11, '', NULL, '', 'Teacher 2', 'Teacher 2', 'Female', 'School', '222-222-2222', 't2@gmail.com', 'uploads/20171124010308.png', 2, '2017-11-24'),
+(12, '', NULL, '', 'Teacher 3', 'Teacher 3', 'Female', 'School', '333-333-3333', 't3@gmail.com', 'uploads/20171124010354.png', 3, '2017-11-24'),
+(13, '', NULL, '', 'Teacher 4', 'Teacher 4', 'Male', 'School', '444-444-4444', 't4@gmail.com', 'uploads/20171124010530.png', 4, '2017-11-24'),
+(14, '', NULL, '', 'Teacher 5', 'Teacher 5', 'Male', 'School', '555-555-5555', 't5@gmail.com', 'uploads/20171124010613.png', 5, '2017-11-24'),
+(15, '', NULL, '', 'Teacher 6', 'Teacher 6', 'Male', 'School', '666-666-6666', 't6@gmail.com', 'uploads/20171124010754.png', 6, '2017-11-24'),
+(16, 'KIMx', 'GOMEZx', 'TABILONx', 'KIMx GOMEZx TABILONx', 'test', 'Male', 'BINOONGAN', '910-000-5433', 'kim.gtabilon@gmail.com', 'uploads/20211129033241.jpg', 0, '2021-11-29');
 
 -- --------------------------------------------------------
 
@@ -993,7 +1009,11 @@ INSERT INTO `user` (`id`, `email`, `password`, `type`) VALUES
 (75, 'shane@gmail.com', '12345', 'Student'),
 (76, 'ronniel@gmail.com', '12345', 'Parents'),
 (77, 'juvilene@gmail.com', '12345', 'Student'),
-(78, 'juvilene@gmail.com', '12345', 'Parents');
+(78, 'juvilene@gmail.com', '12345', 'Parents'),
+(79, 'test6@gmail.com', '12345', 'Student'),
+(80, 'kim.gtabilon@gmail.com', '12345', 'Student'),
+(81, 'kim.gtabilon@gmail.com', '12345', 'Parents'),
+(82, 'kim.gtabilon@gmail.com', '12345', 'Teacher');
 
 --
 -- Indexes for dumped tables
@@ -1301,7 +1321,7 @@ ALTER TABLE `online_chat`
 -- AUTO_INCREMENT for table `parents`
 --
 ALTER TABLE `parents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `payment_notifications`
@@ -1325,7 +1345,7 @@ ALTER TABLE `petty_cash_history`
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `student_attendance`
@@ -1343,13 +1363,13 @@ ALTER TABLE `student_exam`
 -- AUTO_INCREMENT for table `student_grade`
 --
 ALTER TABLE `student_grade`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
 
 --
 -- AUTO_INCREMENT for table `student_payment`
 --
 ALTER TABLE `student_payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=239;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=240;
 
 --
 -- AUTO_INCREMENT for table `student_payment_history`
@@ -1379,7 +1399,7 @@ ALTER TABLE `subject_routing`
 -- AUTO_INCREMENT for table `teacher`
 --
 ALTER TABLE `teacher`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `teacher_attendance`
@@ -1409,7 +1429,7 @@ ALTER TABLE `timetable`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

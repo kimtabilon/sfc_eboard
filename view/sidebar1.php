@@ -52,6 +52,20 @@ $image=$row['image_name'];
             <li><a href="my_friends1.php"><i class="fa fa-circle-o"></i> My Friends</a></li>
           </ul>
         </li>
+
+        <li>
+          <a href="#">
+            <i class="fa fa-flag"></i>
+            <span>eBoard</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="announcement_student_add.php"><i class="fa fa-circle-o"></i> Announcement</a></li>
+          </ul>
+        </li>
+
       </ul>
     </section>
     <!-- /.sidebar -->

@@ -689,9 +689,17 @@ if($cant_remove1 > 0 || $cant_remove2 > 0 || $cant_remove3 > 0 || $cant_remove4 
                 			</div>
                 			<form action="../index.php" method="post" enctype="multipart/form-data" id="form2">
                 				<div class="panel-body"><!-- Start of the modal body--> 
-                                    <div class="form-group" id="divFullNameUpdate">
-                                        <label for="">Full Name</label>
-                                        <input class="form-control" type="text" id="full_name1" name="full_name" autocomplete="off">
+                                    <div class="form-group">
+                                        <label for="">First Name</label>
+                                        <input class="form-control" type="text" id="first_name1" name="first_name" autocomplete="off">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Middle Name</label>
+                                        <input class="form-control" type="text" id="middle_name1" name="middle_name" autocomplete="off">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Last Name</label>
+                                        <input class="form-control" type="text" id="last_name1" name="last_name" autocomplete="off">
                                     </div>
                                     
                                     <div class="form-group" id="divINameUpdate">
@@ -760,13 +768,15 @@ function showModal(Updateform){
 			
 				//MSK-00118
 				document.getElementById("id1").value =myArray1[0];
-				document.getElementById("full_name1").value =myArray1[1];
-				document.getElementById("i_name1").value =myArray1[2];
-				document.getElementById("address1").value =myArray1[3];
-				document.getElementById("gender1").value =myArray1[4];
-				document.getElementById("phone1").value =myArray1[5];
-				document.getElementById("email1").value =myArray1[6];
-				document.getElementById("output1").src ='../'+myArray1[7];
+				document.getElementById("first_name1").value =myArray1[1];
+				document.getElementById("middle_name1").value =myArray1[2];
+				document.getElementById("last_name1").value =myArray1[3];
+				document.getElementById("i_name1").value =myArray1[5];
+				document.getElementById("address1").value =myArray1[6];
+				document.getElementById("gender1").value =myArray1[7];
+				document.getElementById("phone1").value =myArray1[8];
+				document.getElementById("email1").value =myArray1[9];
+				document.getElementById("output1").src ='../'+myArray1[10];
 				document.getElementById("c_page").value =currentPage;
 				
 				var telformat = /\d{3}[\-]\d{3}[\-]\d{4}$/;

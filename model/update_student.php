@@ -5,7 +5,11 @@ if(isset($_POST["do"])&&($_POST["do"]=="update_student")){
 	$std_index=$_POST['std_index'];
 	$grade_id=$_POST['grade_id'];
 	
-	$full_name=$_POST['full_name']; 
+	$first_name = $_POST["first_name"];
+	$middle_name = $_POST["middle_name"];
+	$last_name = $_POST["last_name"];
+	$full_name = $first_name.($middle_name!=''?' '.$middle_name:'').' '.$last_name;
+
 	$i_name=$_POST['i_name']; 
 	$address=$_POST['address']; 
 	$gender=$_POST['gender']; 
@@ -13,7 +17,12 @@ if(isset($_POST["do"])&&($_POST["do"]=="update_student")){
 	$email=$_POST['email'];
 	$b_date = $_POST["b_date"];
 	
-	$g_full_name = $_POST["g_full_name"];
+	$g_first_name = $_POST["g_first_name"];
+	$g_middle_name = $_POST["g_middle_name"];
+	$g_last_name = $_POST["g_last_name"];
+	$g_full_name = $g_first_name.($g_middle_name!=''?' '.$g_middle_name:'').' '.$g_last_name;
+	// $g_full_name = $_POST["g_full_name"];
+
 	$g_i_name= $_POST["g_i_name"];
 	$g_gender = $_POST["g_gender"];
 	$g_address = $_POST["g_address"];
@@ -49,7 +58,7 @@ if(isset($_POST["do"])&&($_POST["do"]=="update_student")){
 	
 	if(!$name){
 		
-		$sql = "update student set full_name='".$full_name."',i_name='".$i_name."',address='".$address."',gender='".$gender."',phone='".$phone."' ,email='".$email."',b_date='".$b_date."' where index_number='$std_index'";
+		$sql = "update student set first_name='".$first_name."', middle_name='".$middle_name."', last_name='".$last_name."', full_name='".$full_name."',i_name='".$i_name."',address='".$address."',gender='".$gender."',phone='".$phone."' ,email='".$email."',b_date='".$b_date."' where index_number='$std_index'";
 	
 		if(mysqli_query($conn,$sql)){
 			$msg+=1; 
@@ -60,7 +69,7 @@ if(isset($_POST["do"])&&($_POST["do"]=="update_student")){
 		}
 	}else{
 		if(move_uploaded_file($tmpname, $image_path)){
-			$sql = "update student set full_name='".$full_name."',i_name='".$i_name."',address='".$address."',gender='".$gender."',phone='".$phone."' ,email='".$email."',image_name='".$image_path."',b_date='".$b_date."' where index_number='$std_index'";
+			$sql = "update student set first_name='".$first_name."', middle_name='".$middle_name."', last_name='".$last_name."', full_name='".$full_name."',i_name='".$i_name."',address='".$address."',gender='".$gender."',phone='".$phone."' ,email='".$email."',image_name='".$image_path."',b_date='".$b_date."' where index_number='$std_index'";
 	
 			if(mysqli_query($conn,$sql)){
 				
@@ -75,7 +84,7 @@ if(isset($_POST["do"])&&($_POST["do"]=="update_student")){
 	}
 	
 	if(!$name1){
-		 $sql1 = "update parents set full_name='".$g_full_name."',i_name='".$g_i_name."',address='".$g_address."',gender='".$g_gender."',phone='".$g_phone."' ,email='".$g_email."',b_date='".$g_b_date."' where my_son_index='$std_index'";
+		 $sql1 = "update parents set first_name='".$g_first_name."', middle_name='".$g_middle_name."', last_name='".$g_last_name."', full_name='".$g_full_name."',i_name='".$g_i_name."',address='".$g_address."',gender='".$g_gender."',phone='".$g_phone."' ,email='".$g_email."',b_date='".$g_b_date."' where my_son_index='$std_index'";
 		 
 		 if(mysqli_query($conn,$sql1)){
 				
@@ -89,7 +98,7 @@ if(isset($_POST["do"])&&($_POST["do"]=="update_student")){
 	}else{
 		if(move_uploaded_file($tmpname1, $g_image_path)){
 			
-			 $sql1 = "update parents set full_name='".$g_full_name."',i_name='".$g_i_name."',address='".$g_address."',gender='".$g_gender."',phone='".$g_phone."' ,email='".$g_email."',image_name='".$g_image_path."',b_date='".$g_b_date."' where my_son_index='$std_index'";
+			 $sql1 = "update parents set first_name='".$g_first_name."', middle_name='".$g_middle_name."', last_name='".$g_last_name."', full_name='".$g_full_name."',i_name='".$g_i_name."',address='".$g_address."',gender='".$g_gender."',phone='".$g_phone."' ,email='".$g_email."',image_name='".$g_image_path."',b_date='".$g_b_date."' where my_son_index='$std_index'";
 			 
 			 if(mysqli_query($conn,$sql1)){
 				

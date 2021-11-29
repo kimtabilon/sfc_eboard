@@ -107,13 +107,19 @@ if(!isset($_SERVER['HTTP_REFERER'])){
                                     <input type="text" class="form-control" placeholder="Enter index number" name="index_number" id="index_number" autocomplete="off" >  
                                 </div>                    
                             </div>
-                            <div class="form-group" id="divFullName">
+                            <div class="form-group">
                                 <div class="col-xs-3">
-                                    <label>Full Name</label>
+                                    <label>Name</label>
                                 </div>
-                                <div class="col-xs-9">
-                                    <input type="text" class="form-control" placeholder="Enter full name" name="full_name" id="full_name" autocomplete="off">  
-                                </div>                    
+                                <div class="col-xs-3">
+                                    <input type="text" class="form-control" placeholder="Enter first name" name="first_name" id="first_name" autocomplete="off" required="required">  
+                                </div>  
+                                <div class="col-xs-3">
+                                    <input type="text" class="form-control" placeholder="Enter midle name" name="middle_name" id="middle_name" autocomplete="off">  
+                                </div>   
+                                <div class="col-xs-3">
+                                    <input type="text" class="form-control" placeholder="Enter last name" name="last_name" id="last_name" autocomplete="off" required="required">  
+                                </div>                     
                             </div>
                             <div class="form-group" id="divIName" >
                                 <div class="col-xs-3">
@@ -224,7 +230,7 @@ $("#form1").submit(function (e) {
 	//MSK-000098-form1 submit
 
 	var index_number = $('#index_number').val();
-	var full_name = $('#full_name').val();	
+	// var full_name = $('#full_name').val();	
 	var i_name = $('#i_name').val();
 	var gender = $('#gender').val();	
 	var phone = $('#phone').val();
@@ -254,7 +260,7 @@ $("#form1").submit(function (e) {
 		
 	}
 
-	if(full_name == ''){
+	/*if(full_name == ''){
 		//MSK-00102-full_name 
 		$("#btnSubmit").attr("disabled", true);
 		$('#divFullName').addClass('has-error has-feedback');
@@ -270,7 +276,7 @@ $("#form1").submit(function (e) {
 
 	}else{
 		
-	}
+	}*/
 
 	if(i_name == ''){
 		//MSK-00102-i_name 
