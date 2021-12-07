@@ -179,7 +179,7 @@ margin:0;
         <!--Fetch the Records -->
                             <tr>
                                 <td><?php echo $cnt;?></td>
-                                <td><img src="profilepics/<?php  echo $row['ProfilePic'];?>" width="80" height="80"></td>
+                                <td style="width: 200px"><?php echo $row['ProfilePic']=='' ? $row['Details'] : '<img src="profilepics/'.$row['ProfilePic'].'" width="80" height="80">' ?></td>
                                 <td><?php  echo $row['FirstName'];?> <?php  echo $row['LastName'];?></td>
                                 <td><?php  echo $row['Email'];?></td>                        
                                 <td><?php  echo $row['MobileNumber'];?></td>

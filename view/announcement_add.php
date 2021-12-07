@@ -207,7 +207,7 @@ margin:0;
 		        </div>
 				
 				<div class="form-group">
-		            <textarea class="form-control" name="address" placeholder="Enter Your Address" required="true"></textarea>
+		            <textarea class="form-control" name="details" placeholder="Enter Your Address" required="true"></textarea>
 		        </div>  
 		             <div class="form-group">
 		        	<input type="file" class="form-control" name="profilepic"  required="true">

@@ -10,10 +10,10 @@ if(isset($_POST['submit']))
     $lname=$_POST['lname'];
     $contno=$_POST['contactno'];
     $email=$_POST['email'];
-    $add=$_POST['address'];
+    $details=$_POST['details'];
 
     //Query for data updation
-     $query=mysqli_query($con, "update  announcements set FirstName='$fname',LastName='$lname', MobileNumber='$contno', Email='$email', Address='$add' where ID='$eid'");
+     $query=mysqli_query($con, "update  announcements set FirstName='$fname',LastName='$lname', MobileNumber='$contno', Email='$email', Details='$details' where ID='$eid'");
      
     if ($query) {
     echo "<script>alert('You have successfully update the data');</script>";
@@ -78,7 +78,7 @@ if(isset($_POST['submit']))
 		        </div>
 				
 				<div class="form-group">
-		            <textarea class="form-control" name="address" required="true"><?php  echo $row['Address'];?></textarea>
+		            <textarea class="form-control" name="details" required="true"><?php  echo $row['Details'];?></textarea>
 		        </div>   
 
 		<?php 
