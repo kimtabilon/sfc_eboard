@@ -11,7 +11,15 @@ if(isset($_POST["do"])&&($_POST["do"]=="update_student")){
 	$full_name = $first_name.($middle_name!=''?' '.$middle_name:'').' '.$last_name;
 
 	$i_name=$_POST['i_name']; 
-	$address=$_POST['address']; 
+
+	$street = $_POST["street"];
+	$barangay = $_POST["barangay"];
+	$city = $_POST["city"];
+	$province = $_POST["province"];
+	$address = ($street!='' ? $street.', ' : '').$barangay.', '.$city.', '.$province;
+	// $address=$_POST['address']; 
+	
+
 	$gender=$_POST['gender']; 
 	$phone=$_POST['phone']; 
 	$email=$_POST['email'];
@@ -25,7 +33,14 @@ if(isset($_POST["do"])&&($_POST["do"]=="update_student")){
 
 	$g_i_name= $_POST["g_i_name"];
 	$g_gender = $_POST["g_gender"];
-	$g_address = $_POST["g_address"];
+	
+	$g_street = $_POST["g_street"];
+	$g_barangay = $_POST["g_barangay"];
+	$g_city = $_POST["g_city"];
+	$g_province = $_POST["g_province"];
+	$g_address = ($g_street!='' ? $g_street.', ' : '').$g_barangay.', '.$g_city.', '.$g_province;
+	// $g_address = $_POST["g_address"];
+
 	$g_phone = $_POST["g_phone"];
 	$g_email = $_POST["g_email"];
 	$g_b_date = $_POST["g_b_date"];
@@ -58,7 +73,7 @@ if(isset($_POST["do"])&&($_POST["do"]=="update_student")){
 	
 	if(!$name){
 		
-		$sql = "update student set first_name='".$first_name."', middle_name='".$middle_name."', last_name='".$last_name."', full_name='".$full_name."',i_name='".$i_name."',address='".$address."',gender='".$gender."',phone='".$phone."' ,email='".$email."',b_date='".$b_date."' where index_number='$std_index'";
+		$sql = "update student set first_name='".$first_name."', middle_name='".$middle_name."', last_name='".$last_name."', full_name='".$full_name."',i_name='".$i_name."',street='".$street."',barangay='".$barangay."',city='".$city."',province='".$province."',address='".$address."',gender='".$gender."',phone='".$phone."' ,email='".$email."',b_date='".$b_date."' where index_number='$std_index'";
 	
 		if(mysqli_query($conn,$sql)){
 			$msg+=1; 
@@ -69,7 +84,7 @@ if(isset($_POST["do"])&&($_POST["do"]=="update_student")){
 		}
 	}else{
 		if(move_uploaded_file($tmpname, $image_path)){
-			$sql = "update student set first_name='".$first_name."', middle_name='".$middle_name."', last_name='".$last_name."', full_name='".$full_name."',i_name='".$i_name."',address='".$address."',gender='".$gender."',phone='".$phone."' ,email='".$email."',image_name='".$image_path."',b_date='".$b_date."' where index_number='$std_index'";
+			$sql = "update student set first_name='".$first_name."', middle_name='".$middle_name."', last_name='".$last_name."', full_name='".$full_name."',i_name='".$i_name."',street='".$street."',barangay='".$barangay."',city='".$city."',province='".$province."',address='".$address."',gender='".$gender."',phone='".$phone."' ,email='".$email."',image_name='".$image_path."',b_date='".$b_date."' where index_number='$std_index'";
 	
 			if(mysqli_query($conn,$sql)){
 				
@@ -84,7 +99,7 @@ if(isset($_POST["do"])&&($_POST["do"]=="update_student")){
 	}
 	
 	if(!$name1){
-		 $sql1 = "update parents set first_name='".$g_first_name."', middle_name='".$g_middle_name."', last_name='".$g_last_name."', full_name='".$g_full_name."',i_name='".$g_i_name."',address='".$g_address."',gender='".$g_gender."',phone='".$g_phone."' ,email='".$g_email."',b_date='".$g_b_date."' where my_son_index='$std_index'";
+		 $sql1 = "update parents set first_name='".$g_first_name."', middle_name='".$g_middle_name."', last_name='".$g_last_name."', full_name='".$g_full_name."',i_name='".$g_i_name."',street='".$g_street."',barangay='".$g_barangay."',city='".$g_city."',province='".$g_province."',address='".$g_address."',gender='".$g_gender."',phone='".$g_phone."' ,email='".$g_email."',b_date='".$g_b_date."' where my_son_index='$std_index'";
 		 
 		 if(mysqli_query($conn,$sql1)){
 				
@@ -98,7 +113,7 @@ if(isset($_POST["do"])&&($_POST["do"]=="update_student")){
 	}else{
 		if(move_uploaded_file($tmpname1, $g_image_path)){
 			
-			 $sql1 = "update parents set first_name='".$g_first_name."', middle_name='".$g_middle_name."', last_name='".$g_last_name."', full_name='".$g_full_name."',i_name='".$g_i_name."',address='".$g_address."',gender='".$g_gender."',phone='".$g_phone."' ,email='".$g_email."',image_name='".$g_image_path."',b_date='".$g_b_date."' where my_son_index='$std_index'";
+			 $sql1 = "update parents set first_name='".$g_first_name."', middle_name='".$g_middle_name."', last_name='".$g_last_name."', full_name='".$g_full_name."',i_name='".$g_i_name."',street='".$g_street."',barangay='".$g_barangay."',city='".$g_city."',province='".$g_province."',address='".$g_address."',gender='".$g_gender."',phone='".$g_phone."' ,email='".$g_email."',image_name='".$g_image_path."',b_date='".$g_b_date."' where my_son_index='$std_index'";
 			 
 			 if(mysqli_query($conn,$sql1)){
 				

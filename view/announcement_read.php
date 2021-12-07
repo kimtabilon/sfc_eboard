@@ -1,5 +1,6 @@
 <?php
-include('dbconnection.php');
+include_once('../controller/config.php');
+$con = $conn;
 ?>
 <?php include_once('head.php'); ?>
 <?php include_once('header_admin.php'); ?>
@@ -28,7 +29,7 @@ include('dbconnection.php');
                             </div>
         <?php
         $vid=$_GET['viewid'];
-        $ret=mysqli_query($con,"select * from tblusers where ID =$vid");
+        $ret=mysqli_query($con,"select * from announcements where ID =$vid");
         $cnt=1;
         while ($row=mysqli_fetch_array($ret)) {
 

@@ -16,11 +16,6 @@
        	</a>
 		<div class="navbar-custom-menu">
 			<ul class="nav navbar-nav">
-            
-              <!-- Notifications: style can be found in dropdown.less -->
-              <li class="dropdown notifications-menu">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <i class="fa fa-bell-o"></i>
 <?php
 include_once('../controller/config.php');
 $my_type=$_SESSION["type"];
@@ -33,15 +28,18 @@ if($my_type == 'Admin'){
 	$notfi_count=$row1['COUNT(id)'];
 	
 ?>
-                  <span class="label label-warning"><?php echo $notfi_count; ?></span>
-                </a>
-                <ul class="dropdown-menu">
-                  <li class="header">You have <?php echo $notfi_count; ?> notifications</li>
-                  <li>
-                    <!-- inner menu: contains the actual data -->
-                    <ul class="menu">
+<!-- Notifications: style can be found in dropdown.less -->
+      <li class="dropdown notifications-menu">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <i class="fa fa-bell-o"></i>
+	      <span class="label label-warning"><?php echo $notfi_count; ?></span>
+	    </a>
+	    <ul class="dropdown-menu">
+	      <li class="header">You have <?php echo $notfi_count; ?> notifications</li>
+	      <li>
+	        <!-- inner menu: contains the actual data -->
+	        <ul class="menu">
 <?php
-include_once('../controller/config.php');
 
 $sql="SELECT * FROM main_notifications ORDER BY id DESC";
 $result=mysqli_query($conn,$sql);
@@ -156,7 +154,6 @@ function countEquel0(){
                    
 <!-- Notifications -->              
 <?php 
-include_once('../controller/config.php');
 
 $my_index=$_SESSION["index_number"];
 $my_type=$_SESSION["type"];
@@ -172,7 +169,7 @@ $unread_count=$row['count(id)'];
 ?>              
             	<!-- Messages: style can be found in dropdown.less-->
               <li class="dropdown messages-menu"  id="friend_request">
-              	<a href="#" class="dropdown-toggle" data-toggle="dropdown" onClick="showFriendRequest('<?php echo $my_index; ?>','<?php echo $my_type; ?>')">
+              	<a href="#" class="dropdown-toggle remove-extra" data-toggle="dropdown" onClick="showFriendRequest('<?php echo $my_index; ?>','<?php echo $my_type; ?>')">
                   <i class="fa fa-user-plus"></i>
                   <span class="label label-success"><?php echo $unread_count; ?></span>
                 </a>
@@ -266,7 +263,6 @@ function confirmFriend(my_index,my_type,friend_index){
 </script>          
             
 <?php 
-include_once('../controller/config.php');
 $my_index=$_SESSION["index_number"];
 $my_type=$_SESSION["type"];
 $unread_msg_count=0;
@@ -302,8 +298,6 @@ while($row=mysqli_fetch_assoc($result)){
                     <!-- inner menu: contains the actual data -->
                     <ul class="menu">
 <?php
-
-include_once('../controller/config.php');
 
 $index=$_SESSION["index_number"];
 $type=$_SESSION["type"];
@@ -398,7 +392,7 @@ $file_path='';
 			}
 			
 			
-			if($type=="Admin"){
+			if($type=="Admin" || $type=="Super Admin"){
 				$file_path="my_friends.php?do=showChatBox&my_index=$index&conversation_id=$conversation_id&friend_index=$friend_index&my_type=$type";
 			}
 			
@@ -558,16 +552,16 @@ if($type=="Admin"){
                 <!-- User Account: style can be found in dropdown.less -->
             	<li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                      <img src="../<?php echo $row['image_name']; ?>" class="user-image" alt="User Image">
-                      <span class="hidden-xs"><?php echo $row['i_name']; ?></span>
+                      <img src="../<?php echo $type=='Super Admin' ? 'assets/images/super_admin.jpg' : $row['image_name']; ?>" class="user-image" alt="User Image">
+                      <span class="hidden-xs"><?php echo $type=='Super Admin' ? 'SuperAdmin' :  $row['i_name']; ?></span>
                     </a>
                     <ul class="dropdown-menu">
                       <!-- User image -->
                       <li class="user-header">
-                        <img src="../<?php echo $row['image_name']; ?>" class="img-circle" alt="User Image">
+                        <img src="../<?php echo $type=='Super Admin' ? 'assets/images/super_admin.jpg' : $row['image_name']; ?>" class="img-circle" alt="User Image">
         
                         <p>
-                          <?php echo $row['i_name']; ?> - <?php echo $type; ?>
+                          <?php echo  $type=='Super Admin' ? '####' : $row['i_name']; ?> - <?php echo $type; ?>
                           <?php
                           		$date = strtotime($row['reg_date']);
                                 echo '<small>'."Member since ".date('M'.'.'.' Y', $date).'</small>';

@@ -7,7 +7,7 @@ if(!isset($_SERVER['HTTP_REFERER'])){
 ?>
 <?php include_once('head.php'); ?>
 <?php include_once('header_admin.php'); ?>
-<?php include_once('sidebar.php'); ?>
+<?php include_once('sidebar0.php'); ?>
 <?php include_once('alert.php'); ?>
 
 <style>
@@ -77,12 +77,12 @@ if(!isset($_SERVER['HTTP_REFERER'])){
 	<!-- Content Header (Page header) -->
     <section class="content-header">
     	<h1>
-        	Teacher
+        	Administrator
             <small>Preview</small>
         </h1>
         <ol class="breadcrumb">
         	<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">Teacher</a></li>
+            <li><a href="#">Administrator</a></li>
          </ol>
      </section>
 
@@ -94,31 +94,27 @@ if(!isset($_SERVER['HTTP_REFERER'])){
                 <!-- general form elements -->
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Add Teacher</h3>
+                        <h3 class="box-title">New Admin</h3>
                     </div><!-- /.box-header -->
                     <!-- form start //MSK-00097-->
                     <form role="form" action="../index.php" method="post"  enctype="multipart/form-data" id="form1" class="form-horizontal" >
                         <div class="box-body" >
-                        	<div class="form-group" id="divIndexNumber">
+                        	
+                        	<input type="hidden" name="index_number" id="index_number" value="<?php echo random_int(100000, 999999); ?>">  
+                        	<!-- <div class="form-group" id="divIndexNumber">
                                 <div class="col-xs-3">
                                     <label>Index Number</label>
                                 </div>
                                 <div class="col-xs-9">
                                     <input type="text" class="form-control" placeholder="Enter index number" name="index_number" id="index_number" autocomplete="off" >  
                                 </div>                    
-                            </div>
+                            </div> -->
                             <div class="form-group">
                                 <div class="col-xs-3">
                                     <label>Name</label>
                                 </div>
-                                <div class="col-xs-3">
-                                    <input type="text" class="form-control" placeholder="Enter first name" name="first_name" id="first_name" autocomplete="off" required="required">  
-                                </div>  
-                                <div class="col-xs-3">
-                                    <input type="text" class="form-control" placeholder="Enter midle name" name="middle_name" id="middle_name" autocomplete="off">  
-                                </div>   
-                                <div class="col-xs-3">
-                                    <input type="text" class="form-control" placeholder="Enter last name" name="last_name" id="last_name" autocomplete="off" required="required">  
+                                <div class="col-xs-9">
+                                    <input type="text" class="form-control" placeholder="Enter full name" name="full_name" id="full_name" autocomplete="off" required="required">  
                                 </div>                     
                             </div>
                             <div class="form-group" id="divIName" >
@@ -133,23 +129,9 @@ if(!isset($_SERVER['HTTP_REFERER'])){
                                 <div class="col-xs-3" >
                                     <label>Address</label>
                                 </div>
-                                <!-- <div class="col-xs-9">
+                                <div class="col-xs-9">
                                     <input type="text" class="form-control" placeholder="Enter address" name="address" id="address" autocomplete="off"> 
-                                </div>  -->    
-                                <div class="col-xs-4" id="divStreet">
-                                   <input type="text" class="form-control" placeholder="Enter Street" name="street" id="street" autocomplete="off"> 
-                                </div>   
-                                <div class="col-xs-5" id="divStreet">
-                                   <input type="text" class="form-control" placeholder="Enter Barangay" name="barangay" id="barangay" autocomplete="off" required="required"> 
-                                </div>   
-                                <div class="col-xs-3"><!-- spacer --></div>
-                                <div class="col-xs-4" id="divStreet">
-                                   <input type="text" class="form-control" style="margin-top: 10px;" placeholder="Enter City/Municipality" name="city" id="city" autocomplete="off" required="required"> 
-                                </div>   
-                                <div class="col-xs-5" id="divStreet">
-                                   <input type="text" class="form-control" style="margin-top: 10px;" placeholder="Enter Province" name="province" id="province" autocomplete="off" required="required"> 
-                                </div> 
-                                                
+                                </div>                     
                             </div>
                             <div class="form-group" id="divGender">
                                 <div class="col-xs-3">
@@ -179,6 +161,14 @@ if(!isset($_SERVER['HTTP_REFERER'])){
                                     <input type="text" class="form-control"  placeholder="Enter valid email address" name="email" id="email" autocomplete="off">
                                 </div>
                             </div>
+                            <div class="form-group tt2 " id="divPass">
+                                <div class="col-xs-3">
+                                    <label>Password</label>
+                                </div>
+                                <div class="col-xs-6" id="divPass1">
+                                    <input type="text" class="form-control"  placeholder="Type password" name="password" id="password" autocomplete="off">
+                                </div>
+                            </div>
                             <div class="form-group" id="divPhoto">
                                 <div class="col-xs-3">
                                     <label>Photo</label>
@@ -190,7 +180,7 @@ if(!isset($_SERVER['HTTP_REFERER'])){
                             </div>
                         </div><!-- /.box-body -->
                         <div class="box-footer">
-                            <input type="hidden" name="do" value="add_teacher"  />
+                            <input type="hidden" name="do" value="admin_new"  />
                             <button type="submit" class="btn btn-primary" id="btnSubmit">Submit</button>
                         </div>
                     </form>
@@ -256,7 +246,7 @@ $("#form1").submit(function (e) {
 	var telformat = /\d{3}[\-]\d{3}[\-]\d{4}$/;
 	var imageNoError= 0;
 	
-	if(index_number == ''){
+	/*if(index_number == ''){
 		//MSK-00102-index_number 
 		$("#btnSubmit").attr("disabled", true);
 		$('#divIndexNumber').addClass('has-error has-feedback');
@@ -272,7 +262,7 @@ $("#form1").submit(function (e) {
 
 	}else{
 		
-	}
+	}*/
 
 	/*if(full_name == ''){
 		//MSK-00102-full_name 

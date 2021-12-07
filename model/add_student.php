@@ -11,7 +11,13 @@ if(isset($_POST["do"])&&($_POST["do"]=="add_student")){
 
 	$i_name= $_POST["i_name"];
 	$gender = $_POST["gender"];
-	$address = $_POST["address"];
+
+	$street = $_POST["street"];
+	$barangay = $_POST["barangay"];
+	$city = $_POST["city"];
+	$province = $_POST["province"];
+	$address = ($street!='' ? $street.', ' : '').$barangay.', '.$city.', '.$province;
+
 	$phone = $_POST["phone"];
 	$email = $_POST["email"];
 	$b_date = $_POST["b_date"];
@@ -25,7 +31,14 @@ if(isset($_POST["do"])&&($_POST["do"]=="add_student")){
 	// $g_full_name = $_POST["g_full_name"];
 	$g_i_name= $_POST["g_i_name"];
 	$g_gender = $_POST["g_gender"];
-	$g_address = $_POST["g_address"];
+
+	$g_street = $_POST["g_street"];
+	$g_barangay = $_POST["g_barangay"];
+	$g_city = $_POST["g_city"];
+	$g_province = $_POST["g_province"];
+	$g_address = ($g_street!='' ? $g_street.', ' : '').$g_barangay.', '.$g_city.', '.$g_province;
+	// $g_address = $_POST["g_address"];
+	
 	$g_phone = $_POST["g_phone"];
 	$g_email = $_POST["g_email"];
 	$g_b_date = $_POST["g_b_date"];
@@ -91,8 +104,8 @@ if(isset($_POST["do"])&&($_POST["do"]=="add_student")){
 			if(move_uploaded_file($tmpname, $image_path)){				
 				//MSK-000143-5	
 
-				$sql = "INSERT INTO student (index_number,first_name,middle_name,last_name,full_name,i_name,gender,address,phone,email,image_name,reg_year,reg_month,reg_date,b_date)
-			            VALUES ('".$index_number."','".$first_name."','".$middle_name."','".$last_name."','".$full_name."','".$i_name."','".$gender."','".$address."','".$phone."','".$email."','".$image_path."','".$reg_year."','".$reg_month."','".$reg_date."','".$b_date."')";
+				$sql = "INSERT INTO student (index_number,first_name,middle_name,last_name,full_name,i_name,gender,street,barangay,city,province,address,phone,email,image_name,reg_year,reg_month,reg_date,b_date)
+			            VALUES ('".$index_number."','".$first_name."','".$middle_name."','".$last_name."','".$full_name."','".$i_name."','".$gender."','".$street."','".$barangay."','".$city."','".$province."','".$address."','".$phone."','".$email."','".$image_path."','".$reg_year."','".$reg_month."','".$reg_date."','".$b_date."')";
 
 				if(mysqli_query($conn,$sql)){
 					$msg+=2;  
@@ -150,8 +163,8 @@ if(isset($_POST["do"])&&($_POST["do"]=="add_student")){
 			if(move_uploaded_file($tmpname1, $g_image_path)){				
 				//MSK-000143-5	
 
-				$sql6 = "INSERT INTO parents (index_number,my_son_index,first_name,middle_name,last_name,full_name,i_name,gender,address,phone,email,image_name,reg_year,reg_month,reg_date,b_date)
-			             VALUES ('".$g_index_number."','".$index_number."','".$g_first_name."','".$g_middle_name."','".$g_last_name."','".$g_full_name."','".$g_i_name."','".$g_gender."','".$g_address."','".$g_phone."','".$g_email."','".$g_image_path."','".$reg_year."','".$reg_month."','".$reg_date."','".$g_b_date."')";
+				$sql6 = "INSERT INTO parents (index_number,my_son_index,first_name,middle_name,last_name,full_name,i_name,gender,street,barangay,city,province,address,phone,email,image_name,reg_year,reg_month,reg_date,b_date)
+			             VALUES ('".$g_index_number."','".$index_number."','".$g_first_name."','".$g_middle_name."','".$g_last_name."','".$g_full_name."','".$g_i_name."','".$g_gender."','".$g_street."','".$g_barangay."','".$g_city."','".$g_province."','".$g_address."','".$g_phone."','".$g_email."','".$g_image_path."','".$reg_year."','".$reg_month."','".$reg_date."','".$g_b_date."')";
 
 				if(mysqli_query($conn,$sql6)){
 					$g_msg+=2;  

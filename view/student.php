@@ -291,9 +291,19 @@ display:none;
                                         <div class="col-xs-3">
                                            <label for="exampleInputEmail1">Address</label>
                                         </div>
-                                        <div class="col-xs-9" id="divAddress1">
-                                           <input type="text" class="form-control" placeholder="Enter address" name="address" id="address" autocomplete="off"> 
-                                        </div>                    
+                                        <div class="col-xs-4" id="divStreet">
+                                           <input type="text" class="form-control" placeholder="Enter Street" name="street" id="street" autocomplete="off"> 
+                                        </div>   
+                                        <div class="col-xs-5" id="divStreet">
+                                           <input type="text" class="form-control" placeholder="Enter Barangay" name="barangay" id="barangay" autocomplete="off" required="required"> 
+                                        </div>   
+                                        <div class="col-xs-3"><!-- spacer --></div>
+                                        <div class="col-xs-4" id="divStreet">
+                                           <input type="text" class="form-control" style="margin-top: 10px;" placeholder="Enter City/Municipality" name="city" id="city" autocomplete="off" required="required"> 
+                                        </div>   
+                                        <div class="col-xs-5" id="divStreet">
+                                           <input type="text" class="form-control" style="margin-top: 10px;" placeholder="Enter Province" name="province" id="province" autocomplete="off" required="required"> 
+                                        </div>                 
                                     </div>
                                     <div class="form-group" id="divEmail">
                                         <div class="col-xs-3">
@@ -385,8 +395,18 @@ display:none;
                                         <div class="col-xs-3">
                                            <label for="exampleInputEmail1">Address</label>
                                         </div>
-                                        <div class="col-xs-9" id="divGAddress1">
-                                           <input type="text" class="form-control" placeholder="Enter address" name="g_address" id="g_address" autocomplete="off"> 
+                                        <div class="col-xs-4" id="divStreet">
+                                           <input type="text" class="form-control" placeholder="Enter Street" name="g_street" id="g_street" autocomplete="off"> 
+                                        </div>   
+                                        <div class="col-xs-5" id="divStreet">
+                                           <input type="text" class="form-control" placeholder="Enter Barangay" name="g_barangay" id="g_barangay" autocomplete="off" required="required"> 
+                                        </div>   
+                                        <div class="col-xs-3"><!-- spacer --></div>
+                                        <div class="col-xs-4" id="divStreet">
+                                           <input type="text" class="form-control" style="margin-top: 10px;" placeholder="Enter City/Municipality" name="g_city" id="g_city" autocomplete="off" required="required"> 
+                                        </div>   
+                                        <div class="col-xs-5" id="divStreet">
+                                           <input type="text" class="form-control" style="margin-top: 10px;" placeholder="Enter Province" name="g_province" id="g_province" autocomplete="off" required="required"> 
                                         </div>                    
                                     </div>
                                     <div class="form-group" id="divGEmail">

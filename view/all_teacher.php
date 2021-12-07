@@ -707,10 +707,27 @@ if($cant_remove1 > 0 || $cant_remove2 > 0 || $cant_remove3 > 0 || $cant_remove4 
                                         <input class="form-control " type="text" id="i_name1" name="i_name" autocomplete="off">
                                     </div>
                                     
-                                    <div class="form-group" id="divAddressUpdate">
+                                    <!-- <div class="form-group" id="divAddressUpdate">
                                         <label for="">Address</label>
                                         <input class="form-control " type="text" id="address1" name="address" autocomplete="off">
+                                    </div> -->
+                                    <div class="form-group" id="">
+                                        <label for="">Street</label>
+                                        <input class="form-control " type="text" id="street1" name="street" autocomplete="off">
                                     </div>
+                                    <div class="form-group" id="">
+                                        <label for="">Barangay</label>
+                                        <input class="form-control " type="text" id="barangay1" name="barangay" autocomplete="off">
+                                    </div>
+                                    <div class="form-group" id="">
+                                        <label for="">City/Municipality</label>
+                                        <input class="form-control " type="text" id="city1" name="city" autocomplete="off">
+                                    </div>
+                                    <div class="form-group" id="">
+                                        <label for="">Province</label>
+                                        <input class="form-control " type="text" id="province1" name="province" autocomplete="off">
+                                    </div>
+
                                     <div class="form-group">
                                         <label for="">Gender</label>
                                         <select class="form-control" style="width:200px;" id="gender1" name="gender">
@@ -764,7 +781,7 @@ function showModal(Updateform){
     		if (this.readyState == 4 && this.status == 200) {
 				
 				var myArray1 = eval( xhttp.responseText );
-				var imagePath = path.concat(myArray1[7]);
+				var imagePath = path.concat(myArray1[13]);
 			
 				//MSK-00118
 				document.getElementById("id1").value =myArray1[0];
@@ -772,11 +789,14 @@ function showModal(Updateform){
 				document.getElementById("middle_name1").value =myArray1[2];
 				document.getElementById("last_name1").value =myArray1[3];
 				document.getElementById("i_name1").value =myArray1[5];
-				document.getElementById("address1").value =myArray1[6];
-				document.getElementById("gender1").value =myArray1[7];
-				document.getElementById("phone1").value =myArray1[8];
-				document.getElementById("email1").value =myArray1[9];
-				document.getElementById("output1").src ='../'+myArray1[10];
+				document.getElementById("street1").value =myArray1[6];
+				document.getElementById("barangay1").value =myArray1[7];
+				document.getElementById("city1").value =myArray1[8];
+				document.getElementById("province1").value =myArray1[9];
+				document.getElementById("gender1").value =myArray1[10];
+				document.getElementById("phone1").value =myArray1[11];
+				document.getElementById("email1").value =myArray1[12];
+				document.getElementById("output1").src ='../'+myArray1[13];
 				document.getElementById("c_page").value =currentPage;
 				
 				var telformat = /\d{3}[\-]\d{3}[\-]\d{4}$/;
@@ -1093,24 +1113,24 @@ $page=$_GET['page'];
 
 
 <!-- Modal-Delete Confirm Popup //MSK-000129 -->
-	<div class="modal msk-fade " id="deleteConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
-  		<div class="modal-dialog">
-    		<div class="modal-content">
-				<div class="modal-header bg-primary">
-        			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        			<h4 class="modal-title" id="frm_title">Delete</h4>
-      			</div>
+<div class="modal msk-fade " id="deleteConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+		<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header bg-primary">
+    			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+    			<h4 class="modal-title" id="frm_title">Delete</h4>
+  			</div>
 
-				<div class="modal-body bgColorWhite">
-        			<strong style="color:red;">Are you sure?</strong>  Do you want to Delete this Record
-        		</div>
-      			<div class="modal-footer">
-					<a href="#" style='margin-left:10px;' id="btnYes" class="deletebtn btn btn-danger col-sm-2 pull-right">Yes</a><!-- MSK-000130 -->
-        			<button type="button" class="btn btn-primary col-sm-2 pull-right" data-dismiss="modal" id="frm_cancel">No</button>
-      			</div>
+			<div class="modal-body bgColorWhite">
+    			<strong style="color:red;">Are you sure?</strong>  Do you want to Delete this Record
     		</div>
-  		</div>
-	</div>
+  			<div class="modal-footer">
+				<a href="#" style='margin-left:10px;' id="btnYes" class="deletebtn btn btn-danger col-sm-2 pull-right">Yes</a><!-- MSK-000130 -->
+    			<button type="button" class="btn btn-primary col-sm-2 pull-right" data-dismiss="modal" id="frm_cancel">No</button>
+  			</div>
+		</div>
+		</div>
+</div>
 
 
 <script>

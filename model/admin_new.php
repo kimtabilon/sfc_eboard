@@ -1,28 +1,17 @@
 <?php
 include_once('controller/config.php');
-if(isset($_POST["do"])&&($_POST["do"]=="add_teacher")){
+if(isset($_POST["do"])&&($_POST["do"]=="admin_new")){
 
 	$index_number = $_POST["index_number"];	
 	
-	$first_name = $_POST["first_name"];
-	$middle_name = $_POST["middle_name"];
-	$last_name = $_POST["last_name"];
-	$full_name = $first_name.($middle_name!=''?' '.$middle_name:'').' '.$last_name;
+	$full_name = $_POST["full_name"];
 	
 	$i_name= $_POST["i_name"];
 	$gender = $_POST["gender"];
-
-
-	$street = $_POST["street"];
-	$barangay = $_POST["barangay"];
-	$city = $_POST["city"];
-	$province = $_POST["province"];
-	$address = ($street!='' ? $street.', ' : '').$barangay.', '.$city.', '.$province;
-	// $address = $_POST["address"];
-	
-
+	$address = $_POST["address"];
 	$phone = $_POST["phone"];
 	$email = $_POST["email"];
+	$password = $_POST["password"];
 	
 	$current_date=date("Y-m-d");
 	
@@ -36,15 +25,20 @@ if(isset($_POST["do"])&&($_POST["do"]=="add_teacher")){
 	$extention = strtolower(substr($name, strpos($name, ".")+ 1));
 	$filename = date("Ymjhis");
 	
-	$sql1="SELECT * FROM teacher where index_number='$index_number'";	
+	$sql1="SELECT * FROM admin where index_number='$index_number'";	
 	$result1=mysqli_query($conn,$sql1);
 	$row1=mysqli_fetch_assoc($result1);
 	$index_number1=$row1['index_number'];
 	
-	$sql2="SELECT * FROM teacher where email='$email'";	
+	$sql2="SELECT * FROM admin where email='$email'";	
 	$result2=mysqli_query($conn,$sql2);
 	$row2=mysqli_fetch_assoc($result2);
 	$email2=$row2['email'];
+
+	$sql3="SELECT * FROM user where email='$email'";	
+	$result3=mysqli_query($conn,$sql3);
+	$row3=mysqli_fetch_assoc($result3);
+	$email3=$row3['email'];
 	
 	$msg=0;//for alerts
 	$image_path =  $target_dir.$filename.".".$extention;
@@ -53,12 +47,12 @@ if(isset($_POST["do"])&&($_POST["do"]=="add_teacher")){
 		//MSK-000143-1 The index number is duplicated.
 		$msg+=1;
 		
-		if($email == $email2){
+		if($email == $email2 || $email == $email3){
 			//MSK-000143-2 Both index number and email duplicate. 
 			$msg+=3; //(Note: msg value is not equel to 3, its value is 1+=3 -> 1+3 = 4 :D)
 		}
 
-	}else if($email == $email2){
+	}else if($email == $email2 || $email == $email3){
 		
 		//MSK-000143-3 Only email address duplicates.
 		$msg+=5;
@@ -69,14 +63,13 @@ if(isset($_POST["do"])&&($_POST["do"]=="add_teacher")){
 		 	if(move_uploaded_file($tmpname, $image_path)){
 				//MSK-000143-5	
 				
-				$sql = "INSERT INTO teacher (index_number,first_name,middle_name,last_name,full_name,i_name,gender,street,barangay,city,province,address,phone,email,image_name,reg_date)
-			            VALUES ('".$index_number."','".$first_name."','".$middle_name."','".$last_name."','".$full_name."','".$i_name."','".$gender."','".$street."','".$barangay."','".$city."','".$province."','".$address."','".$phone."','".$email."','".$image_path.                        "','".$current_date."')";
-			          
+				$sql = "INSERT INTO admin (index_number,full_name,i_name,gender,address,phone,email,image_name,reg_date)
+			            VALUES ('".$index_number."','".$full_name."','".$i_name."','".$gender."','".$address."','".$phone."','".$email."','".$image_path.                        "','".$current_date."')";
 				if(mysqli_query($conn,$sql)){
 					$msg+=2;  
 					//MSK-000143-6 The record has been successfully inserted into the database.
 					$sql3= "INSERT INTO user (email,password,type)
-			                VALUES ('".$email."','12345','Teacher')";
+			                VALUES ('".$email."','".$password."','Admin')";
 					
 					mysqli_query($conn,$sql3);
 				}else{
@@ -94,6 +87,6 @@ if(isset($_POST["do"])&&($_POST["do"]=="add_teacher")){
 			//And you need to know, how to check that using PHP
 		}
 	}
-	header("Location: view/teacher.php?do=alert_from_insert&msg=$msg");//MSK-000143-9
+	header("Location: view/admin_accounts.php?do=alert_from_insert&msg=$msg");//MSK-000143-9
 }
 ?>

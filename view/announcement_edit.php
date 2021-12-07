@@ -1,6 +1,7 @@
 <?php 
 //Database Connection
-include('dbconnection.php');
+include_once('../controller/config.php');
+$con = $conn;
 if(isset($_POST['submit']))
   {
   	$eid=$_GET['editid'];
@@ -12,7 +13,7 @@ if(isset($_POST['submit']))
     $add=$_POST['address'];
 
     //Query for data updation
-     $query=mysqli_query($con, "update  tblusers set FirstName='$fname',LastName='$lname', MobileNumber='$contno', Email='$email', Address='$add' where ID='$eid'");
+     $query=mysqli_query($con, "update  announcements set FirstName='$fname',LastName='$lname', MobileNumber='$contno', Email='$email', Address='$add' where ID='$eid'");
      
     if ($query) {
     echo "<script>alert('You have successfully update the data');</script>";
@@ -46,7 +47,7 @@ if(isset($_POST['submit']))
 		    <form  method="POST">
 		 <?php
 		$eid=$_GET['editid'];
-		$ret=mysqli_query($con,"select * from tblusers where ID='$eid'");
+		$ret=mysqli_query($con,"select * from announcements where ID='$eid'");
 		while ($row=mysqli_fetch_array($ret)) {
 		?>
 				<h2>Update </h2>

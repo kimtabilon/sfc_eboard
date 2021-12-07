@@ -14,6 +14,13 @@ if(isset($_arguments["do"])&& ($_arguments["do"] != "")){
 		$page = "model/add_grade.php";
 	}else if(($_arguments["do"] == "add_subject")){//MSK-000143-add_subject
 		$page = "model/add_subject.php";
+	
+	}else if(($_arguments["do"] == "admin_new")){//MSK-000143-add_teacher
+		$page = "model/admin_new.php";	
+		
+	}else if(($_arguments["do"] == "admin_update")){//MSK-000143-add_teacher
+		$page = "model/admin_update.php";	
+	
 	}else if(($_arguments["do"] == "add_teacher")){//MSK-000143-add_teacher
 		$page = "model/add_teacher.php";
 	}else if(($_arguments["do"] == "update_teacher")){//MSK-000143-update_teacher

@@ -6,7 +6,7 @@ if(isset($_POST["do"])&&($_POST["do"]=="user_login")){
 	$email=$_POST["email"];
 	$password=$_POST["password"]; 
 	
-	$sql="SELECT * FROM user WHERE email='$email'";	
+	$sql="SELECT * FROM user WHERE email='$email' && password='$password'";	
 	$result=mysqli_query($conn,$sql);
 	$row=mysqli_fetch_assoc($result);
 	
@@ -53,6 +53,18 @@ if(isset($_POST["do"])&&($_POST["do"]=="user_login")){
 			$_SESSION["index_number"]=$index_number;
 			$_SESSION["type"]="Admin";
 			header("Location: view/dashboard.php");
+		}
+
+		if($type == "Super Admin"){
+			
+			$sql1="SELECT * FROM admin where email='$email'";	
+			$result1=mysqli_query($conn,$sql1);
+			$row1=mysqli_fetch_assoc($result1);
+	
+			$index_number=$row1['index_number'];
+			$_SESSION["index_number"]=$index_number;
+			$_SESSION["type"]="Super Admin";
+			header("Location: view/dashboard0.php");
 		}
 		
 		if($type == "Parents"){

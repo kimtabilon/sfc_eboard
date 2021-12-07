@@ -4,7 +4,8 @@
 <?php include_once('alert.php'); ?>
 <?php 
 //Databse Connection file
-include('dbconnection.php');
+include_once('../controller/config.php');
+$con = $conn;
 if(isset($_POST['submit']))
   {
   	//getting the post values
@@ -30,7 +31,7 @@ $imgnewfile=md5($imgfile).time().$extension;
 // Code for move image into directory
 move_uploaded_file($_FILES["profilepic"]["tmp_name"],"profilepics/".$imgnewfile);
 // Query for data insertion
-$query=mysqli_query($con, "insert into tblusers(FirstName,LastName, MobileNumber, Email, Address,ProfilePic, status) value('$fname','$lname', '$contno', '$email', '$add','$imgnewfile', 'pending' )");
+$query=mysqli_query($con, "insert into announcements(FirstName,LastName, MobileNumber, Email, Address,ProfilePic, status) value('$fname','$lname', '$contno', '$email', '$add','$imgnewfile', 'pending' )");
 if ($query) {
 echo "<script>alert('You have successfully inserted the data');</script>";
 echo "<script type='text/javascript'> document.location ='announcement.php'; </script>";

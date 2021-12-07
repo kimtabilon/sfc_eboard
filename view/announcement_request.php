@@ -1,6 +1,7 @@
 <?php
 //database conection  file
-include('dbconnection.php');
+include_once('../controller/config.php');
+$con = $conn;
 ?>
 <?php include_once('head.php'); ?>
 <?php include_once('header_admin.php'); ?>
@@ -168,7 +169,7 @@ margin:0;
                         </thead>
                         <tbody>
                              <?php
-        $ret=mysqli_query($con,"SELECT * FROM tblusers WHERE status='pending' ORDER BY ID DESC");
+        $ret=mysqli_query($con,"SELECT * FROM announcements WHERE status='pending' ORDER BY ID DESC");
         $cnt=1;
         $row=mysqli_num_rows($ret);
         if($row>0){

@@ -1,39 +1,19 @@
 <?php
 include_once('controller/config.php');
-if(isset($_POST["do"])&&($_POST["do"]=="update_teacher")){
+if(isset($_POST["do"])&&($_POST["do"]=="admin_update")){
 
 	$id=$_POST['id'];
 	
-	$first_name = $_POST["first_name"];
-	$middle_name = $_POST["middle_name"];
-	$last_name = $_POST["last_name"];
-	$full_name = $first_name.($middle_name!=''?' '.$middle_name:'').' '.$last_name;
+	$full_name = $_POST["full_name"];
 
 	$i_name=$_POST['i_name']; 
-
-	$street = $_POST["street"];
-	$barangay = $_POST["barangay"];
-	$city = $_POST["city"];
-	$province = $_POST["province"];
-	$address = ($street!='' ? $street.', ' : '').$barangay.', '.$city.', '.$province;
-	
+	$address=$_POST['address']; 
 	$gender=$_POST['gender']; 
 	$phone=$_POST['phone']; 
 	$email=$_POST['email'];
+	$password=$_POST['password'];
 	
 	$c_page=$_POST['c_page'];//current table page
-	
-	$sql1="SELECT * FROM teacher where email='$email'";	
-	$result1=mysqli_query($conn,$sql1);
-	$row1=mysqli_fetch_assoc($result1);
-	
-	$id1=$row1['id'];
-	$full_name1=$row1['full_name']; 
-	$i_name1=$row1['i_name']; 
-	$address1=$row1['address']; 
-	$gender1=$row1['gender']; 
-	$phone1=$row1['phone']; 
-	$email1=$row1['email'];
 	
 	$target_dir = "uploads/";
 	$name = basename($_FILES["fileToUpload"]["name"]);
@@ -53,7 +33,9 @@ if(isset($_POST["do"])&&($_POST["do"]=="update_teacher")){
 		if($full_name != $full_name1 || $i_name != $i_name1 || $address != $address1 || $gender != $gender1 ||$phone != $phone1 || $name){//MSK-000143-U-2		
 			
 			if(!$name){//MSK-000143-U-3
-				$sql = "update teacher set first_name='".$first_name."', middle_name='".$middle_name."', last_name='".$last_name."', full_name='".$full_name."',i_name='".$i_name."',street='".$street."',barangay='".$barangay."',city='".$city."',province='".$province."',address='".$address."',gender='".$gender."',phone='".$phone."' ,email='".$email."' where id='$id'";
+				$sql = "update admin set full_name='".$full_name."',i_name='".$i_name."',address='".$address."',gender='".$gender."',phone='".$phone."' ,email='".$email."' where id='$id'";
+
+				mysqli_query($conn,"update user set email='".$email."', password='".$password."' where id='$id'");
 	
 				if(mysqli_query($conn,$sql)){
 								
@@ -66,7 +48,8 @@ if(isset($_POST["do"])&&($_POST["do"]=="update_teacher")){
 	
 			}else{ //MSK-000143-U-6
 				if(move_uploaded_file($tmpname, $image_path)){ //MSK-000143-U-7
-					$sql = "update teacher set first_name='".$first_name."', middle_name='".$middle_name."', last_name='".$last_name."', full_name='".$full_name."',i_name='".$i_name."',street='".$street."',barangay='".$barangay."',city='".$city."',province='".$province."',address='".$address."',gender='".$gender."',phone='".$phone."' ,email='".$email."',image_name='".$image_path."' where id='$id'";
+					$sql = "update admin set full_name='".$full_name."',i_name='".$i_name."',address='".$address."',gender='".$gender."',phone='".$phone."' ,email='".$email."',image_name='".$image_path."' where id='$id'";
+					mysqli_query($conn,"update user set email='".$email."', password='".$password."' where id='$id'");
 	
 					if(mysqli_query($conn,$sql)){
 									
@@ -100,7 +83,8 @@ if(isset($_POST["do"])&&($_POST["do"]=="update_teacher")){
 
 			if(!$name){//MSK-000143-U-15
 			
-				$sql = "update teacher set first_name='".$first_name."', middle_name='".$middle_name."', last_name='".$last_name."', full_name='".$full_name."',i_name='".$i_name."',street='".$street."',barangay='".$barangay."',city='".$city."',province='".$province."',address='".$address."',gender='".$gender."',phone='".$phone."' ,email='".$email."' where id='$id'";
+				$sql = "update admin set full_name='".$full_name."',i_name='".$i_name."',address='".$address."',gender='".$gender."',phone='".$phone."' ,email='".$email."' where id='$id'";
+				mysqli_query($conn,"update user set email='".$email."', password='".$password."' where id='$id'");
 
 				if(mysqli_query($conn,$sql)){
 					$msg+=1; 
@@ -114,7 +98,8 @@ if(isset($_POST["do"])&&($_POST["do"]=="update_teacher")){
 			
 				if(move_uploaded_file($tmpname, $image_path)){//MSK-000143-U-19	
 			
-					$sql = "update teacher set first_name='".$first_name."', middle_name='".$middle_name."', last_name='".$last_name."', full_name='".$full_name."',i_name='".$i_name."',street='".$street."',barangay='".$barangay."',city='".$city."',province='".$province."',address='".$address."',gender='".$gender."',phone='".$phone."' ,email='".$email."',image_name='".$image_path."' where id='$id'";
+					$sql = "update admin set full_name='".$full_name."',i_name='".$i_name."',address='".$address."',gender='".$gender."',phone='".$phone."' ,email='".$email."',image_name='".$image_path."' where id='$id'";
+					mysqli_query($conn,"update user set email='".$email."', password='".$password."' where id='$id'");
 
 					if(mysqli_query($conn,$sql)){
 						$msg+=1; 
@@ -136,7 +121,7 @@ if(isset($_POST["do"])&&($_POST["do"]=="update_teacher")){
 		
 	}		
 
-	header("Location: view/all_teacher.php?do=alert_from_update&msg=$msg&page=$c_page");//MSK-000143-U-23		
+	header("Location: view/admin_accounts.php?do=alert_from_update&msg=$msg&page=$c_page");//MSK-000143-U-23		
 
 }
 ?>

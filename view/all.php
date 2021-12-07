@@ -1,9 +1,11 @@
 <?php
-//index.php
-$connect = mysqli_connect("localhost", "root", "", "phpcrud");
+// include('dbconnection.php');
+include_once('../controller/config.php');
+$connect = $conn;
+
 function make_query($connect)
 {
- $query = "SELECT * FROM tblusers WHERE BINARY Email IN ('All') ORDER BY id ASC";
+ $query = "SELECT * FROM announcements WHERE BINARY Email IN ('All') ORDER BY id ASC";
  $result = mysqli_query($connect, $query);
  return $result;
 }
