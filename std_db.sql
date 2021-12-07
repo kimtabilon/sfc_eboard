@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 07, 2021 at 03:06 AM
+-- Generation Time: Dec 07, 2021 at 07:23 AM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -60,7 +60,7 @@ CREATE TABLE `announcements` (
   `LastName` varchar(200) DEFAULT NULL,
   `MobileNumber` bigint(10) DEFAULT NULL,
   `Email` varchar(200) DEFAULT NULL,
-  `Address` mediumtext DEFAULT NULL,
+  `Details` longtext DEFAULT NULL,
   `ProfilePic` varchar(200) DEFAULT NULL,
   `status` varchar(100) NOT NULL,
   `CreationDate` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
@@ -70,7 +70,7 @@ CREATE TABLE `announcements` (
 -- Dumping data for table `announcements`
 --
 
-INSERT INTO `announcements` (`ID`, `FirstName`, `LastName`, `MobileNumber`, `Email`, `Address`, `ProfilePic`, `status`, `CreationDate`) VALUES
+INSERT INTO `announcements` (`ID`, `FirstName`, `LastName`, `MobileNumber`, `Email`, `Details`, `ProfilePic`, `status`, `CreationDate`) VALUES
 (12, 'Linlyn ', 'Canape', 12345, 'All', 'Hiba-iyo, Guihulngan', 'd41d8cd98f00b204e9800998ecf8427e1635666070.jpg', 'confirmed', '2021-11-28 21:25:03'),
 (13, 'Linlyn ', 'Canape', 12345, 'Elementary Department', 'Hiba-iyo, Guihulngan', 'd41d8cd98f00b204e9800998ecf8427e1635666645.png', 'pending', '2021-11-28 21:22:40'),
 (14, 'Linlyn ', 'Canape', 12345, 'Elementary Department', 'Hiba-iyo, Guihulngan', 'd41d8cd98f00b204e9800998ecf8427e1635667832.gif', 'pending', '2021-11-28 21:22:43'),
@@ -78,7 +78,8 @@ INSERT INTO `announcements` (`ID`, `FirstName`, `LastName`, `MobileNumber`, `Ema
 (16, 'Linlyn ', 'Canape', 12344, 'All', 'Hiba-iyo, Guihulngan', 'd41d8cd98f00b204e9800998ecf8427e1635671190.png', 'pending', '2021-11-28 21:22:46'),
 (17, 'Linlyn ', 'Canape', 12345, 'Elementary Department', 'Hiba-iyo, Guihulngan', 'd41d8cd98f00b204e9800998ecf8427e1635672238.jpg', 'confirmed', '2021-11-28 21:23:36'),
 (20, 'test', 'test', 122345, 'All', 'test@gmail.com', 'd41d8cd98f00b204e9800998ecf8427e1638163972.jpg', 'pending', '2021-11-28 21:32:52'),
-(21, 'KIM', 'TABILON', 9675743804, 'All', 'BINOONGAN', 'd41d8cd98f00b204e9800998ecf8427e1638164011.jpg', 'pending', '2021-11-28 21:33:31');
+(21, 'KIM', 'TABILON', 9675743804, 'All', 'BINOONGAN', 'd41d8cd98f00b204e9800998ecf8427e1638164011.jpg', 'pending', '2021-11-28 21:33:31'),
+(0, 'KIM', 'TABILON', 9675743804, 'All', 'In todayâ€™s modern world, much of our conversation happens through the medium of email. Whether it is for marketing purposes or for personal use, utilizing emailâ€™s power has proven to work better and be more efficient than other communication channels for a multitude of reasons.\r\n\r\nToday, weâ€™d like to center our focus around announcement email templates, the sort of which you will often see within the context of business.\r\n\r\nWhat we love about announcement emails is that they are directly related to marketing, but they are also used for internal, company-related matters, such as the promotion or the resignation of an employee.', '', 'confirmed', '2021-12-07 06:10:55');
 
 -- --------------------------------------------------------
 
