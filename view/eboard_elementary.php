@@ -4,7 +4,7 @@ include_once('../controller/config.php');
 $connect = $conn;
 function make_query($connect)
 {
- $query = "SELECT * FROM announcements WHERE BINARY Email IN ('Elementary Department','All') ORDER BY id ASC";
+ $query = "SELECT * FROM announcements WHERE status='confirmed' && BINARY Email IN ('Elementary Department','All') ORDER BY id ASC";
  $result = mysqli_query($connect, $query);
  return $result;
 }
@@ -48,13 +48,17 @@ function make_slides($connect)
   {
    $output .= '<div class="item">';
   }
-  $output .= '
-   <img src="profilepics/'.$row["ProfilePic"].'" alt="'.$row["Email"].'" />
-   <div class="carousel-caption">
+  if($row["ProfilePic"]!='') {
+     $output .= '<img src="profilepics/'.$row["ProfilePic"].'" alt="'.$row["Email"].'" />';
+  } else {
     
-   </div>
-  </div>
-  ';
+    $output .= '<div style="padding-top: 20px; height:auto; width:600px; font-size:20pt; font-style:italic; font-width:500; text-align:center; margin: 0 auto;">'.$row["Details"].'</div>';
+  }
+
+  $output .= '
+     <div class="carousel-caption"></div>
+    </div>
+    ';
   $count = $count + 1;
  }
  return $output;
