@@ -7,6 +7,8 @@
 include_once('../controller/config.php');
 
 $index=$_SESSION["index_number"];
+$type=$_SESSION["type"];
+
 
 $sql="SELECT * FROM admin WHERE index_number='$index'";
 $result=mysqli_query($conn,$sql);
@@ -18,7 +20,7 @@ $image=$row['image_name'];
       
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="../<?php echo $image; ?>" class="img-circle" alt="User Image">
+          <img src="../<?php echo $type=='Super Admin' ? 'assets/images/super_admin.jpg' : $image; ?>" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p><?php echo $name; ?></p>

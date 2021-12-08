@@ -864,22 +864,117 @@ function cTablePage(page){
 
 </script> 
 
-<!--redirect your own url when clicking browser back button -->
-<script>
-(function(window, location) {
-history.replaceState(null, document.title, location.pathname+"#!/history");
-history.pushState(null, document.title, location.pathname);
 
-window.addEventListener("popstate", function() {
-  if(location.hash === "#!/history") {
-    history.replaceState(null, document.title, location.pathname);
-    setTimeout(function(){
-      location.replace("../index.php");//path to when click back button
-    },0);
-  }
-}, false);
-}(window, location));
-</script>
+<!--run insert alert using PHP & JS/jQuery  -->       
+<?php
+//MSK-000143-10-PHP-JS-INSERT
+if(isset($_GET["do"])&&($_GET["do"]=="alert_from_insert")){
+  
+$msg=$_GET['msg'];
+
+	if($msg==1){
+		echo"
+			<script>
+			
+			var myModal = $('#index_Duplicated');
+			myModal.modal('show');
+			
+    		myModal.data('hideInterval', setTimeout(function(){
+    			myModal.modal('hide');
+    		}, 3000));
+						
+			</script>
+		";
+	
+	}
+
+	if($msg==2){
+		echo"
+			<script>
+			
+			var myModal = $('#insert_Success');
+			myModal.modal('show');
+
+			clearTimeout(myModal.data('hideInterval'));
+    		myModal.data('hideInterval', setTimeout(function(){
+    			myModal.modal('hide');
+    		}, 3000));
+			
+			</script>
+		";
+	
+	}
+
+	if($msg==3){
+		echo"
+			<script>
+			
+			var myModal = $('#connection_Problem');
+			myModal.modal('show');
+			
+			clearTimeout(myModal.data('hideInterval'));
+    		myModal.data('hideInterval', setTimeout(function(){
+    			myModal.modal('hide');
+    		}, 3000));
+			
+			</script>
+		";
+	
+	}
+	
+	if($msg==4){
+		echo"
+			<script>
+			
+			var myModal = $('#index_email_Duplicated');
+			myModal.modal('show');
+			
+			clearTimeout(myModal.data('hideInterval'));
+    		myModal.data('hideInterval', setTimeout(function(){
+    			myModal.modal('hide');
+    		}, 3000));
+			
+			</script>
+		";
+	
+	}
+	
+	if($msg==5){
+		echo"
+			<script>
+			
+			var myModal = $('#email_Duplicated');
+			myModal.modal('show');
+			
+			clearTimeout(myModal.data('hideInterval'));
+    		myModal.data('hideInterval', setTimeout(function(){
+    			myModal.modal('hide');
+    		}, 3000));
+			
+			</script>
+		";
+	
+	}
+	
+	if($msg==6){
+		echo"
+			<script>
+			
+			var myModal = $('#upload_error1');
+			myModal.modal('show');
+			
+			clearTimeout(myModal.data('hideInterval'));
+    		myModal.data('hideInterval', setTimeout(function(){
+    			myModal.modal('hide');
+    		}, 3000));
+			
+			</script>
+		";
+	
+	}
+	
+}
+?><!--./Insert alert -->
   	 	
 </div><!-- /.content-wrapper -->  
                              
