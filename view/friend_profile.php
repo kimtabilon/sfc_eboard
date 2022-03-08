@@ -47,7 +47,7 @@ $email=$row['email'];
                         					<td id="full_name"><?php echo $full_name; ?></td>
                       					</tr>
                       					<tr>
-                        					<td>Name With Initials</td>
+                        					<td>Profile Name</td>
                         					<td id="i_name"><?php echo $i_name; ?> </td>
                       					</tr>
                              			<tr>
@@ -122,7 +122,7 @@ $email=$row['email'];
                         					<td id="full_name"><?php echo $full_name; ?></td>
                       					</tr>
                       					<tr>
-                        					<td>Name With Initials</td>
+                        					<td>Profile Name</td>
                         					<td id="i_name"><?php echo $i_name; ?> </td>
                       					</tr>
                              			<tr>
@@ -207,7 +207,7 @@ $g_phone=$row1['phone'];
                         					<td id="full_name"><?php echo $full_name; ?></td>
                       					</tr>
                       					<tr>
-                        					<td>Name With Initials</td>
+                        					<td>Profile Name</td>
                         					<td id="i_name"><?php echo $i_name; ?> </td>
                       					</tr>
                              			<tr>

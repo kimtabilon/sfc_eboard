@@ -321,7 +321,7 @@ display:none;
                                                     <label for="exampleInputEmail1">Phone</label>
                                                 </div>
                                                 <div class="col-xs-7" id="divPhone1">
-                                                	<input type="text" class="form-control" id="phone" name="phone" placeholder="1111-111-1111">
+                                                	<input type="text" class="form-control" id="phone" name="phone" placeholder="09...">
                                                 </div> 
                                         	</div>  
                                             <div class="form-group" id="divDOB">
@@ -329,7 +329,7 @@ display:none;
                                                     <label for="exampleInputEmail1">Date of Birth</label>
                                                 </div>
                                                 <div class="col-xs-7" id="divDOB1">
-                                                	<input type="text" class="form-control" id="b_date" name="b_date" >
+                                                	<input type="date" class="form-control" id="b_date" name="b_date" >
                                                 </div> 
                                         	</div>  
                                             <div class="form-group" id="divGender" >
@@ -424,7 +424,7 @@ display:none;
                                                     <label for="exampleInputEmail1">Phone</label>
                                                 </div>
                                                 <div class="col-xs-7" id="divGPhone1">
-                                                	<input type="text" class="form-control" id="g_phone" name="g_phone" placeholder="1111-111-1111" >
+                                                	<input type="text" class="form-control" id="g_phone" name="g_phone" placeholder="09..." >
                                                 </div> 
                                         	</div>
                                             <div class="form-group" id="divGDOB">
@@ -432,7 +432,7 @@ display:none;
                                                     <label for="exampleInputEmail1">Date of Birth</label>
                                                 </div>
                                                 <div class="col-xs-7" id="divGDOB1">
-                                                	<input type="text" class="form-control" id="g_b_date" name="g_b_date" >
+                                                	<input type="date" class="form-control" id="g_b_date" name="g_b_date" >
                                                 </div> 
                                         	</div> 
                                             <div class="form-group" id="divGGender">
@@ -950,49 +950,6 @@ $("form").submit(function (e){
 			
 		});
 		
-	}else{
-		if (telformat.test(phone) == false){ 
-			//MSK-00104-phone
-			$('#divPhone').addClass('has-error');
-			$('#divPhone1').addClass('has-error has-feedback');
-			$('#divPhone1').append('<span id="spanPhone" class="glyphicon glyphicon-remove form-control-feedback msk-set-color-tooltip" data-toggle="tooltip"    title="Enter valid phone number" ></span>');
-			
-			$("#phone").keydown(function() {
-				//MSK-00105-phone
-				var $field = $(this);
-				var beforeVal = $field.val();// this is the value before the keypress
-	
-				setTimeout(function() {
-	
-					var afterVal = $field.val();// this is the value after the keypress
-					
-						if (telformat.test(afterVal) == true){
-							//MSK-00106-phone
-							$("#btnSubmit").attr("disabled", false);
-							$('#divPhone').removeClass('has-error');
-							$('#divPhone1').removeClass('has-error has-feedback');
-							$('#spanPhone').remove();
-							$('#divPhone1').addClass('has-success has-feedback');
-							$('#divPhone1').append('<span id="spanPhone" class="glyphicon glyphicon-ok form-control-feedback"></span>');
-							
-						}else{
-							//MSK-00107-phone
-							$("#btnSubmit").attr("disabled", true);
-							$('#spanPhone').remove();
-							$('#divPhone').addClass('has-error');
-							$('#divPhone1').addClass('has-error has-feedback');
-							$('#divPhone1').append('<span id="spanPhone" class="glyphicon glyphicon-remove form-control-feedback msk-set-color-tooltip" data-toggle="tooltip"    title="Enter valid email address" ></span>');
-					
-						}
-					
-				}, 0);
-						
-			});
-			
-		}else{
-			
-		}
-		
 	}
 	
 	if(g_phone == ''){
@@ -1010,51 +967,9 @@ $("form").submit(function (e){
 			
 		});
 		
-	}else{
-		if (telformat.test(g_phone) == false){ 
-			//MSK-00112-g_phone
-			$('#divGPhone').addClass('has-error');
-			$('#divGPhone1').addClass('has-error has-feedback');
-			$('#divGPhone1').append('<span id="spanGPhone" class="glyphicon glyphicon-remove form-control-feedback msk-set-color-tooltip" data-toggle="tooltip"    title="Enter valid phone number" ></span>');
-			
-			$("#g_phone" ).keydown(function(){
-				//MSK-00113-g_phone
-				var $field = $(this);
-				var beforeVal = $field.val();// this is the value before the keypress
-	
-				setTimeout(function() {
-	
-					var afterVal = $field.val();// this is the value after the keypress
-					
-						if (telformat.test(afterVal) == true){
-							//MSK-00114-g_phone
-							$('#spanGPhone').remove();
-							$("#btnSubmit").attr("disabled", false);
-							$('#divGPhone').removeClass('has-error');
-							$('#divGPhone1').removeClass('has-error has-feedback');
-							$('#divGPhone1').addClass('has-success has-feedback');
-							$('#divGPhone1').append('<span id="spanGPhone" class="glyphicon glyphicon-ok form-control-feedback"></span>');
-							
-						}else{
-							//MSK-00115-g_phone
-							$('#spanGPhone').remove();
-							$("#btnSubmit").attr("disabled", true);
-							$('#divGPhone').addClass('has-error');
-							$('#divGPhone1').addClass('has-error has-feedback');
-							$('#divGPhone1').append('<span id="spanGPhone" class="glyphicon glyphicon-remove form-control-feedback msk-set-color-tooltip" data-toggle="tooltip"    title="Enter valid phone number" ></span>');
-					
-						}
-					
-				}, 0);
-						
-			});
-			
-		}else{
-			
-		}			
 	}
 	
-	if(index_number == '' || g_index_number == '' || full_name == '' || g_full_name == '' || i_name == '' || g_i_name == '' || address == '' || g_address == '' || gender == 'Select Gender' || g_gender == 'Select Gender' || b_date == '' || g_b_date == '' || email == '' || mailformat.test(email) == false || g_email == '' || mailformat.test(g_email) == false || telformat.test(phone) == false || telformat.test(g_phone) == false || photo == '' || g_photo == '' || phone == ''  || g_phone == '' ) {
+	if(index_number == '' || g_index_number == '' || full_name == '' || g_full_name == '' || i_name == '' || g_i_name == '' || address == '' || g_address == '' || gender == 'Select Gender' || g_gender == 'Select Gender' || b_date == '' || g_b_date == '' || email == '' || mailformat.test(email) == false || g_email == '' || mailformat.test(g_email) == false || photo == '' || g_photo == '' || phone == ''  || g_phone == '' ) {
 		
 		//MSK-000098- form validation failed
 		$("#btnSubmit").attr("disabled", true);
@@ -1077,7 +992,7 @@ $("form").submit(function (e){
       			<div class="row">
           			<div class="panel panel-primary "><!--panel --> 
             			<div class="panel-heading ">
-              				<h3 class="panel-title" id="hname">Select Course|Grade</h3>
+              				<h3 class="panel-title" id="hname">Select Department</h3>
             			</div>
             			<div class="panel-body"><!--panel-body -->
               				<div class="row">
@@ -1085,7 +1000,7 @@ $("form").submit(function (e){
                                 	<div class="form-group">
                                         <label for="">Grade</label>
                                         <select class="form-control" style="width:200px;" id="grade" name="grade">
-                                            <option>Select Course|Grade</option>
+                                            <option>Select Department</option>
 <?php
 include_once('../controller/config.php');
 $sql="SELECT * FROM grade";
@@ -1293,6 +1208,8 @@ function addSPayment(){
 	var totalSFee = $("#total_sfee").val();
 	var aFee = $("#a_fee").val(); 
 	var inv_num = $("#inv_num").val(); 
+
+    $("#modalINV").modal('hide');
 	
 	var xhttp = new XMLHttpRequest();//MSK-000140-Start Ajax 
   		xhttp.onreadystatechange = function() {
@@ -1300,10 +1217,18 @@ function addSPayment(){
     		if (this.readyState == 4 && this.status == 200) {//MSK-000142
 				
 				var myArray = eval( xhttp.responseText );
+
+                var myModal = $('#insert_Success');
+                    myModal.modal('show');//MSK-000145
+                    
+                    myModal.data('hideInterval', setTimeout(function(){
+                        myModal.modal('hide');
+                
+                    }, 3000));
 				
-				if(myArray[0] == 1){//MSK-000144
+				/*if(myArray[0] == 1){//MSK-000144
 					window.print();
-					$("#modalINV").modal('hide');
+					
 					var myModal = $('#insert_Success');
 					myModal.modal('show');//MSK-000145
 					
@@ -1323,7 +1248,7 @@ function addSPayment(){
 				
     				}, 3000));
 				
-				}
+				}*/
 				
     		}
 			

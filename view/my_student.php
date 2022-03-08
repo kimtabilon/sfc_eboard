@@ -710,7 +710,7 @@ function Delete_alert(msg){
                         					<td id="full_name2"> </td>
                       					</tr>
                       					<tr>
-                        					<td>Name With Initials</td>
+                        					<td>Profile Name</td>
                         					<td id="i_name2"> </td>
                       					</tr>
                              			<tr>

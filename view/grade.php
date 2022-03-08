@@ -69,7 +69,7 @@ body {
 	<!-- Content Header (Page header) -->
     <section class="content-header">
     	<h1>
-        	COURSE|GRADE
+        	Department
         	<small>Preview</small>
         </h1>
         <ol class="breadcrumb">
@@ -86,7 +86,7 @@ body {
             	<!-- general form elements -->
               	<div class="box box-primary">
                 	<div class="box-header with-border">
-                  		<h3 class="box-title">Add Course|Grade</h3>
+                  		<h3 class="box-title">Add Department</h3>
                 	</div><!-- /.box-header -->
                 	<!--  //MSK-00097 form start -->
                 	<form role="form" action="../index.php" method="post" id="form1">                    
@@ -115,7 +115,7 @@ body {
                         <div class="panel panel-primary">
                             <div class="panel-heading">               
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-                                <h3 class="panel-title">Add Course|Grade</h3>
+                                <h3 class="panel-title">Add Department</h3>
                             </div>
                              <form role="form" action="../index.php" method="post" id="form2">
                                 <div class="panel-body"> <!-- Start of modal body--> 
@@ -474,7 +474,7 @@ if(isset($_GET["do"])&&($_GET["do"]=="show_eMark")){
 			<div class="col-md-7">
             	<div class="box">
                 	<div class="box-header">
-                  		<h3 class="box-title">All Course|Grade</h3>
+                  		<h3 class="box-title">All Department</h3>
                 	</div><!-- /.box-header -->
                 	<div class="box-body table-responsive">
                     	<!--MSK-00101-->

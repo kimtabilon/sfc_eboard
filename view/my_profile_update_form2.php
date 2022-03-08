@@ -20,7 +20,7 @@ if(!isset($_SERVER['HTTP_REFERER'])){
                             <td id="tdFullName2" ><input type="text" class="form-control" value="" name="full_name" id="full_name1" autocomplete="off"></td>
                         </tr>
                         <tr>
-                            <td id="tdIName1">Name With Initials</td>
+                            <td id="tdIName1">Profile Name</td>
                             <td id="tdIName2"><input type="text" class="form-control" value="" name="i_name" id="i_name1" autocomplete="off"> </td>
                         </tr>
                         <tr>

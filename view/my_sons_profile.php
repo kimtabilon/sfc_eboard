@@ -101,7 +101,7 @@ $password=$row1['password'];
                         					<td id="full_name"><?php echo $full_name; ?></td>
                       					</tr>
                       					<tr>
-                        					<td>Name With Initials</td>
+                        					<td>Profile Name</td>
                         					<td id="i_name"><?php echo $i_name; ?> </td>
                       					</tr>
                              			<tr>

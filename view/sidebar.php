@@ -41,7 +41,7 @@ $image=$row['image_name'];
        
         <li>
           <a href="grade.php">
-            <i class="fa fa-database"></i> <span>Courses|Grade</span>
+            <i class="fa fa-database"></i> <span>Department</span>
           </a>
         </li>
        

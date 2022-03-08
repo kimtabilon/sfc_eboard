@@ -281,10 +281,10 @@ $row1=mysqli_fetch_assoc($result1);
                                     </div>
                                     <div class="form-group" id="divIName">
                                         <div class="col-xs-3">
-                                            <label for="exampleInputEmail1">Name With Initials</label>
+                                            <label for="exampleInputEmail1">Profile Name</label>
                                         </div>
                                         <div class="col-xs-9" id="divIName1">
-                                            <input type="text" class="form-control" placeholder="Enter name with initials" name="i_name" id="i_name" autocomplete="off" value="<?php echo $row['i_name']; ?>">
+                                            <input type="text" class="form-control" placeholder="Enter Profile Name" name="i_name" id="i_name" autocomplete="off" value="<?php echo $row['i_name']; ?>">
                                         </div>                    
                                     </div>
                                     <div class="form-group" id="divAddress">
@@ -360,10 +360,10 @@ $row1=mysqli_fetch_assoc($result1);
                                     </div>
                                     <div class="form-group" id="divGIName">
                                         <div class="col-xs-3">
-                                            <label for="exampleInputEmail1">Name With Initials</label>
+                                            <label for="exampleInputEmail1">Profile Name</label>
                                         </div>
                                         <div class="col-xs-9" id="divGIName1">
-                                            <input type="text" class="form-control" placeholder="Enter name with initials" name="g_i_name" id="g_i_name" autocomplete="off" value="<?php echo $row1['i_name']; ?>">
+                                            <input type="text" class="form-control" placeholder="Enter Profile Name" name="g_i_name" id="g_i_name" autocomplete="off" value="<?php echo $row1['i_name']; ?>">
                                         </div>                    
                                     </div>
                                     <div class="form-group" id="divGAddress">

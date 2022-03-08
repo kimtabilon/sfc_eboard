@@ -45,7 +45,7 @@ include_once("../controller/config.php");
                     	<button type="button" onClick="" class="close  " data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>	
                         <br>
                         </div>
-            			<div class="panel-body"><!--panel-body -->
+            			<div class="panel-body" style="display: none;"><!--panel-body -->
                         	<div class="row " id="msk12345">
                             	<div class="col-xs-2">
                                 	<div class="div-logo">
@@ -187,7 +187,7 @@ $total = number_format($total, 2, '.', '');
                                 <input type="hidden" id="a_fee" value="<?php echo $a_fee; ?>"  />
                                 <input type="hidden" id="total_sfee" value="<?php echo $monthly_fee; ?>"  />
                     			<button type="button" class="btn btn-primary btn-md"  id="btnSubmit1" onClick="addSPayment(this)">
-                                	<small><span class="glyphicon glyphicon-usd"></span></small>Paid<!--MSK-000138-->
+                                	Continue to save student data?<!--MSK-000138-->
                                 </button>
              			</div>                    
                 	</div><!--/. panel--> 
