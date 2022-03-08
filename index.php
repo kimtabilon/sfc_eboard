@@ -1,5 +1,8 @@
-<?php define('MAIN_INCLUDED', 1); ?>
-<?php
+<?php 
+error_reporting(E_ALL ^ E_WARNING); 
+
+define('MAIN_INCLUDED', 1);
+
 $_arguments = array();
 if(count($_POST) > 0){
 	$_arguments = $_POST;

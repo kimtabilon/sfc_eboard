@@ -572,7 +572,7 @@ if(mysqli_num_rows($result) > 0){
                                 </div>
                                 
                                 <div class="form-group" id="divINameUpdate">
-                                    <label for="">Name With Initials</label>
+                                    <label for="">Profile Name</label>
                                     <input class="form-control " type="text" id="i_name1" name="i_name" autocomplete="off">
                                 </div>
                                 

@@ -651,15 +651,16 @@ if(mysqli_num_rows($result10) > 0){
 if($cant_remove1 > 0 || $cant_remove2 > 0 || $cant_remove3 > 0 || $cant_remove4 > 0 || $cant_remove5 > 0 || $cant_remove6 > 0 || $cant_remove7 > 0 || $cant_remove8 > 0 || $cant_remove9 > 0 || $cant_remove10 > 0){
 	
 	echo '<a href="#modalUpdateform" onClick="showModal(this)" class="btn btn-warning btn-xs" data-id="'.$id.'" data-toggle="modal">Edit</a>';
-	echo ' <a href="#" onClick="addSalary(this)" class="btn btn-success btn-xs"  data-id="'.$index.','.$id.'">Add Salary</a>';
-	echo ' <a href="#" onClick="viewPayments(this)" class="btn btn-info btn-xs"  data-id="'.$index.'">View Payments</a>';
+	echo ' <a href="#" class="confirm-delete btn btn-danger btn-xs"  data-id="'.$id.'">Delete</a>';
+	//echo ' <a href="#" onClick="addSalary(this)" class="btn btn-success btn-xs"  data-id="'.$index.','.$id.'">Add Salary</a>';
+	//echo ' <a href="#" onClick="viewPayments(this)" class="btn btn-info btn-xs"  data-id="'.$index.'">View Payments</a>';
 	
 }else{
 	
 	echo '<a href="#modalUpdateform" onClick="showModal(this)" class="btn btn-warning btn-xs" data-id="'.$id.'" data-toggle="modal">Edit</a>';
 	echo ' <a href="#" class="confirm-delete btn btn-danger btn-xs"  data-id="'.$id.'">Delete</a>';
-	echo ' <a href="#" onClick="addSalary(this)" class="btn btn-success btn-xs"  data-id="'.$index.','.$id.'">Add Salary</a>';
-	echo ' <a href="#" onClick="viewPayments(this)" class="btn btn-info btn-xs"  data-id="'.$index.'">View Payments</a>';
+	//echo ' <a href="#" onClick="addSalary(this)" class="btn btn-success btn-xs"  data-id="'.$index.','.$id.'">Add Salary</a>';
+	//echo ' <a href="#" onClick="viewPayments(this)" class="btn btn-info btn-xs"  data-id="'.$index.'">View Payments</a>';
 	
 }
 
@@ -703,7 +704,7 @@ if($cant_remove1 > 0 || $cant_remove2 > 0 || $cant_remove3 > 0 || $cant_remove4 
                                     </div>
                                     
                                     <div class="form-group" id="divINameUpdate">
-                                        <label for="">Name With Initials</label>
+                                        <label for="">Profile Name</label>
                                         <input class="form-control " type="text" id="i_name1" name="i_name" autocomplete="off">
                                     </div>
                                     
@@ -1255,7 +1256,7 @@ function Delete_alert(msg){
                                                 <td id="full_name2"> </td>
                                             </tr>
                                             <tr>
-                                                <td>Name With Initials</td>
+                                                <td>Profile Name</td>
                                                 <td id="i_name2"> </td>
                                             </tr>
                                             <tr>

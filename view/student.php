@@ -281,10 +281,10 @@ display:none;
                                     </div>
                                     <div class="form-group" id="divIName">
                                         <div class="col-xs-3">
-                                            <label for="exampleInputEmail1">Name With Initials</label>
+                                            <label for="exampleInputEmail1">Profile Name</label>
                                         </div>
                                         <div class="col-xs-9" id="divIName1">
-                                            <input type="text" class="form-control" placeholder="Enter name with initials" name="i_name" id="i_name" autocomplete="off">
+                                            <input type="text" class="form-control" placeholder="Enter Profile Name" name="i_name" id="i_name" autocomplete="off">
                                         </div>                    
                                     </div>
                                     <div class="form-group" id="divAddress">
@@ -385,10 +385,10 @@ display:none;
                                     </div>
                                     <div class="form-group" id="divGIName">
                                         <div class="col-xs-3">
-                                            <label for="exampleInputEmail1">Name With Initials</label>
+                                            <label for="exampleInputEmail1">Profile Name</label>
                                         </div>
                                         <div class="col-xs-9" id="divGIName1">
-                                            <input type="text" class="form-control" placeholder="Enter name with initials" name="g_i_name" id="g_i_name" autocomplete="off">
+                                            <input type="text" class="form-control" placeholder="Enter Profile Name" name="g_i_name" id="g_i_name" autocomplete="off">
                                         </div>                    
                                     </div>
                                     <div class="form-group" id="divGAddress">

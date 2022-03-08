@@ -123,10 +123,10 @@ if(!isset($_SERVER['HTTP_REFERER'])){
                             </div>
                             <div class="form-group" id="divIName" >
                                 <div class="col-xs-3">
-                                    <label>Name With Initials</label>
+                                    <label>Profile Name</label>
                                 </div>
                                 <div class="col-xs-9">
-                                    <input type="text" class="form-control" placeholder="Enter name with initials" name="i_name" id="i_name" autocomplete="off">
+                                    <input type="text" class="form-control" placeholder="Enter Profile Name" name="i_name" id="i_name" autocomplete="off">
                                 </div>
                             </div>
                              <div class="form-group" id="divAddress" >
