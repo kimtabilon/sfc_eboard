@@ -43,7 +43,7 @@ $image=$row['image_name'];
             <i class="fa fa-graduation-cap"></i> <span>My Student</span>
           </a>
         </li>
-        <li class="treeview">
+        <!-- <li class="treeview">
           <a href="#">
             <i class="fa fa-book"></i>
             <span>Subject</span>
@@ -105,7 +105,7 @@ $image=$row['image_name'];
             <li><a href="my_student_exam_marks_history.php"><i class="fa fa-circle-o"></i> My Student Exam Marks History</a></li>
             <li><a href="exam_timetable2.php"><i class="fa fa-circle-o"></i>Exam Timetable</a></li>
           </ul>
-        </li>
+        </li> -->
         <li class="treeview">
           <a href="#">
             <i class="fa fa-facebook"></i>
@@ -130,6 +130,19 @@ $image=$row['image_name'];
           <ul class="treeview-menu">
           	<li><a href="my_events2.php"><i class="fa fa-circle-o"></i> My Events</a></li>
           	<li><a href="all_events2.php"><i class="fa fa-circle-o"></i> All Events</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-flag"></i>
+            <span>eBoard</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="announcement.php"><i class="fa fa-circle-o"></i> Confirmed</a></li>
+            <li><a href="announcement_request.php"><i class="fa fa-circle-o"></i> Pending</a></li>
           </ul>
         </li>
       </ul>
