@@ -38,7 +38,7 @@ if(isset($_POST['submit']))
             <small>Preview</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="add_announcement.php" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add Announcement</span></a></li>
+            <li><a href="announcement_add.php" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add Announcement</span></a></li>
         </ol>
     </section>
 

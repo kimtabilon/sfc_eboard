@@ -141,8 +141,7 @@ $image=$row['image_name'];
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="announcement.php"><i class="fa fa-circle-o"></i> Confirmed</a></li>
-            <li><a href="announcement_request.php"><i class="fa fa-circle-o"></i> Pending</a></li>
+            <li><a href="announcement_add_teacher.php"><i class="fa fa-circle-o"></i> Add Announcement</a></li>
           </ul>
         </li>
       </ul>

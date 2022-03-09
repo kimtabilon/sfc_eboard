@@ -1,6 +1,6 @@
 <?php include_once('head.php'); ?>
-<?php include_once('header_admin.php'); ?>
-<?php include_once('sidebar.php'); ?>
+<?php include_once('header_teacher.php'); ?>
+<?php include_once('sidebar2.php'); ?>
 <?php include_once('alert.php'); ?>
 <?php 
 //Databse Connection file
@@ -8,6 +8,7 @@ include_once('../controller/config.php');
 $con = $conn;
 if(isset($_POST['submit']))
   {
+    print_r($_POST);
   	//getting the post values
     $fname=$_POST['fname'];
     $lname=$_POST['lname'];
@@ -34,7 +35,6 @@ move_uploaded_file($_FILES["profilepic"]["tmp_name"],"profilepics/".$imgnewfile)
 $query=mysqli_query($con, "insert into announcements(FirstName,LastName, MobileNumber, Email, Details,ProfilePic, status) value('$fname','$lname', '$contno', '$email', '$add','$imgnewfile', 'pending' )");
 if ($query) {
 echo "<script>alert('You have successfully inserted the data');</script>";
-echo "<script type='text/javascript'> document.location ='announcement.php'; </script>";
 } else{
 echo "<script>alert('Something Went Wrong. Please try again');</script>";
 }}
